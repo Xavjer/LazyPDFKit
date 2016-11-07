@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "EEFA7BB6F0363727BB9F8C3B0DAABFC2C7E17DED",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "EEFA7BB6F0363727BB9F8C3B0DAABFC2C7E17DED" : 9223372036854775807,
+    "E034296E1F99127E376A5A231EEF1D9DE518AAC8" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "517576BF-A86A-4A80-8296-25EE30BD59ED",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "EEFA7BB6F0363727BB9F8C3B0DAABFC2C7E17DED" : "LazyPDFKit\/",
+    "E034296E1F99127E376A5A231EEF1D9DE518AAC8" : "lazypdfkit2"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "LazyPDFKit",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "LazyPDFKit.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/bitbucket.org\/lazyprogram\/lazypdfkit.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E034296E1F99127E376A5A231EEF1D9DE518AAC8"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Xavjer\/LazyPDFKit.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "EEFA7BB6F0363727BB9F8C3B0DAABFC2C7E17DED"
+    }
+  ]
+}

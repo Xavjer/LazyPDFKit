@@ -22,5 +22,21 @@
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>NSPrincipalClass</key>
 	<string></string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Please allow us to use your location</string>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>Please allow us to use your microphone</string>
+    <key>NSCameraUsageDescription</key>
+    <string>Please allow us to use your camera</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>Please allow us to use your photo library</string>
+    <key>NSContactsUsageDescription</key>
+    <string>Please allow us to use your contacts list</string>
+    <key>NSBluetoothPeripheralUsageDescription</key>
+    <string>Please allow us to use your bluetooth</string>
+    <key>NSCalendarsUsageDescription</key>
+    <string>Please allow us to use your calendars</string>
+    <key>NSAppleMusicUsageDescription</key>
+    <string>Please allow us to use your media library</string>
 </dict>
 </plist>

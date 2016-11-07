@@ -193,6 +193,7 @@
 				TargetAttributes = {
 					902D281F1AC3AE6100BADF2C = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = JLEGY5HJG2;
 					};
 					902D28381AC3AE6100BADF2C = {
 						CreatedOnToolsVersion = 6.2;
@@ -371,6 +372,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = JLEGY5HJG2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/ctepv1/Desktop/lazypdfkit2,
@@ -385,6 +387,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = JLEGY5HJG2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/ctepv1/Desktop/lazypdfkit2,
@@ -448,6 +451,7 @@
 				902D28451AC3AE6100BADF2C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		902D28461AC3AE6100BADF2C /* Build configuration list for PBXNativeTarget "LazyPDFKitDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -456,6 +460,7 @@
 				902D28481AC3AE6100BADF2C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
