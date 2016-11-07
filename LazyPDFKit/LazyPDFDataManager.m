@@ -187,7 +187,12 @@ static LazyPDFDataManager *instance = nil;
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:entityDesc];
     NSPredicate *pred =[NSPredicate predicateWithFormat:@"(page=%@)",page];
-    [request setPredicate:pred];
+    //[request setPredicate:pred];
+    NSPredicate *pred2 =[NSPredicate predicateWithFormat:@"(file.filePath = %@)", filePath];
+    
+    NSPredicate *finalPred = [NSCompoundPredicate andPredicateWithSubpredicates:@[pred, pred2]];
+    
+    [request setPredicate:finalPred];
     
     NSError *error;
     NSArray *objects = [context executeFetchRequest:request
