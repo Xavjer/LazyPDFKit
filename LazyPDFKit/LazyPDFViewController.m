@@ -41,6 +41,7 @@
 #import "LazyPDFMainPagebar.h"
 #import "LazyPDFDrawToolbar.h"
 #import "LazyPDFDataManager.h"
+#import "LazyPDFConfiguration.h"
 
 
 @interface LazyPDFViewController () <UIScrollViewDelegate, UIGestureRecognizerDelegate, MFMailComposeViewControllerDelegate, UIDocumentInteractionControllerDelegate,
@@ -86,7 +87,8 @@ LazyPDFMainToolbarDelegate, LazyPDFMainPagebarDelegate, LazyPDFContentViewDelega
     
     BOOL ignoreDidScroll;
     
-    BOOL hideFlattenPDF;
+    LazyPDFConfiguration *configuration;
+
 }
 
 #pragma mark - Constants
@@ -95,7 +97,7 @@ LazyPDFMainToolbarDelegate, LazyPDFMainPagebarDelegate, LazyPDFContentViewDelega
 
 #define TOOLBAR_HEIGHT 44.0f
 #define PAGEBAR_HEIGHT 48.0f
-#define DRAWBAR_HEIGHT 400.0f
+#define DRAWBAR_HEIGHT 380.0f
 #define DRAWBAR_WIDTH 44.0f
 
 #define SCROLLVIEW_OUTSET_SMALL 4.0f
@@ -321,7 +323,6 @@ LazyPDFMainToolbarDelegate, LazyPDFMainPagebarDelegate, LazyPDFContentViewDelega
     {
         if ((object != nil) && ([object isKindOfClass:[LazyPDFDocument class]])) // Valid object
         {
-            hideFlattenPDF = NO;
             
             userInterfaceIdiom = [UIDevice currentDevice].userInterfaceIdiom; // User interface idiom
             
@@ -338,6 +339,38 @@ LazyPDFMainToolbarDelegate, LazyPDFMainPagebarDelegate, LazyPDFContentViewDelega
             [LazyPDFThumbCache touchThumbCacheWithGUID:object.guid]; // Touch the document thumb cache directory
         }
         else // Invalid LazyPDFDocument object
+        {
+            self = nil;
+        }
+    }
+    
+    return self;
+}
+
+- (instancetype)initWithLazyPDFConfiguration:(LazyPDFConfiguration *)config
+{
+    if ((self = [super initWithNibName:nil bundle:nil])) // Initialize superclass
+    {
+        if (([config object] != nil) && ([[config object] isKindOfClass:[LazyPDFDocument class]])) // Valid object
+        {
+            userInterfaceIdiom = [UIDevice currentDevice].userInterfaceIdiom; // User interface idiom
+            
+            NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter]; // Default notification center
+            
+            [notificationCenter addObserver:self selector:@selector(applicationWillResign:) name:UIApplicationWillTerminateNotification object:nil];
+            
+            [notificationCenter addObserver:self selector:@selector(applicationWillResign:) name:UIApplicationWillResignActiveNotification object:nil];
+            
+            scrollViewOutset = ((userInterfaceIdiom == UIUserInterfaceIdiomPad) ? SCROLLVIEW_OUTSET_LARGE : SCROLLVIEW_OUTSET_SMALL);
+            
+            [[config object] updateDocumentProperties]; document = [config object]; // Retain the supplied LazyPDFDocument object for our use
+            
+            [LazyPDFThumbCache touchThumbCacheWithGUID:[config object].guid]; // Touch the document thumb cache directory
+
+            configuration = config;
+            
+        }
+        else // Invalid Configuration object
         {
             self = nil;
         }
@@ -386,16 +419,60 @@ LazyPDFMainToolbarDelegate, LazyPDFMainPagebarDelegate, LazyPDFContentViewDelega
     [self.view addSubview:theScrollView];
     
     CGRect toolbarRect = viewRect; toolbarRect.size.height = TOOLBAR_HEIGHT;
-    mainToolbar = [[LazyPDFMainToolbar alloc] initWithFrame:toolbarRect document:document]; // LazyPDFMainToolbar
+    mainToolbar = [[LazyPDFMainToolbar alloc] initWithFrame:toolbarRect document:document config:configuration]; // LazyPDFMainToolbar
     mainToolbar.delegate = self; // LazyPDFMainToolbarDelegate
     [self.view addSubview:mainToolbar];
     
-    CGRect drawbarRect = CGRectMake(10, viewRect.origin.y+TOOLBAR_HEIGHT+10, DRAWBAR_WIDTH, DRAWBAR_HEIGHT);
-    drawToolbar = [[LazyPDFDrawToolbar alloc] initWithFrame:drawbarRect document:document]; // LazyPDFMainToolbar
+    CGFloat db_height = DRAWBAR_HEIGHT;
+    if (configuration != nil)
+    {
+        if (configuration.showPencil == NO) {
+            db_height = db_height - 30;
+        }
+        if (configuration.showWriteText == NO) {
+            db_height = db_height - 30;
+        }
+        if (configuration.showMarkText == NO) {
+            db_height = db_height - 30;
+        }
+        if (configuration.showDrawLine == NO) {
+            db_height = db_height - 30;
+        }
+        if (configuration.showDrawRectangle == NO) {
+            db_height = db_height - 30;
+        }
+        if (configuration.showDrawCircle == NO) {
+            db_height = db_height - 30;
+        }
+        if (configuration.showDrawFilledCircle == NO) {
+            db_height = db_height - 30;
+        }
+        if (configuration.showErasor == NO) {
+            db_height = db_height - 30;
+        }
+        if (configuration.showPencilOptions == NO) {
+            db_height = db_height - 30;
+        }
+        if (configuration.showUndoDraw == NO) {
+            db_height = db_height - 30;
+        }
+        if (configuration.showRedoDraw == NO) {
+            db_height = db_height - 30;
+        }
+        if (configuration.showClear == NO) {
+            db_height = db_height - 30;
+        }
+    }
+    
+    if (db_height > 20)
+    {
+    CGRect drawbarRect = CGRectMake(10, viewRect.origin.y+TOOLBAR_HEIGHT+10, DRAWBAR_WIDTH, db_height);
+    drawToolbar = [[LazyPDFDrawToolbar alloc] initWithFrame:drawbarRect document:document config:configuration]; // LazyPDFMainToolbar
     drawToolbar.delegate = self; // LazyPDFDrawToolbarDelegate
     [self.view addSubview:drawToolbar];
+    }
     
-    if (hideFlattenPDF == YES)
+    if (configuration == nil || (configuration != nil && configuration.showFlattenPDF == YES))
     {
         CGRect flattenRect = CGRectMake(self.view.bounds.size.width-120, viewRect.origin.y+TOOLBAR_HEIGHT+10, 110, 40);
         flattenPDFButton = [[UIButton alloc] initWithFrame:flattenRect];
@@ -410,7 +487,7 @@ LazyPDFMainToolbarDelegate, LazyPDFMainPagebarDelegate, LazyPDFContentViewDelega
     
     CGRect pagebarRect = self.view.bounds; pagebarRect.size.height = PAGEBAR_HEIGHT;
     pagebarRect.origin.y = (self.view.bounds.size.height - pagebarRect.size.height);
-    mainPagebar = [[LazyPDFMainPagebar alloc] initWithFrame:pagebarRect document:document]; // LazyPDFMainPagebar
+    mainPagebar = [[LazyPDFMainPagebar alloc] initWithFrame:pagebarRect document:document config:configuration]; // LazyPDFMainPagebar
     mainPagebar.delegate = self; // LazyPDFMainPagebarDelegate
     [self.view addSubview:mainPagebar];
     

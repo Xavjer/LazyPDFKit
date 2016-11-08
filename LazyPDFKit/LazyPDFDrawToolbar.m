@@ -9,11 +9,13 @@
 #import "LazyPDFConstants.h"
 #import "LazyPDFDrawToolbar.h"
 #import "LazyPDFDocument.h"
+#import "LazyPDFConfiguration.h"
 
 #import <MessageUI/MessageUI.h>
 
 @implementation LazyPDFDrawToolbar
 {
+    LazyPDFConfiguration *configuration;
     UIButton *markButton;
     
     UIImage *markImageN;
@@ -56,12 +58,14 @@
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
-    return [self initWithFrame:frame document:nil];
+    return [self initWithFrame:frame document:nil config:nil];
 }
 
-- (instancetype)initWithFrame:(CGRect)frame document:(LazyPDFDocument *)document
+- (instancetype)initWithFrame:(CGRect)frame document:(LazyPDFDocument *)document config:(LazyPDFConfiguration *) config
 {
     assert(document != nil); // Must have a valid LazyPDFDocument
+    
+    configuration = config;
     
     if ((self = [super initWithFrame:frame]))
     {
@@ -85,6 +89,8 @@
         NSBundle *currentBundle = [NSBundle bundleForClass:[self class]];
         
         //Pen Button
+        if (configuration == nil || (configuration != nil && configuration.showPencil == YES))
+        {
         penButton = [UIButton buttonWithType:UIButtonTypeCustom];
         penButton.frame = CGRectMake(BUTTON_X, leftButtonY, BUTTON_WIDTH, iconButtonHeight);
         [penButton setImage:[UIImage imageNamed:@"pen-but" inBundle:currentBundle compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
@@ -96,8 +102,11 @@
         penButton.tag = 1;
         [self addSubview:penButton]; leftButtonY += (iconButtonHeight + buttonSpacing);
         titleY += (iconButtonHeight + buttonSpacing); titleHeight -= (iconButtonHeight + buttonSpacing);
+        }
         
         //Text Button
+        if (configuration == nil || (configuration != nil && configuration.showWriteText == YES))
+        {
         textButton = [UIButton buttonWithType:UIButtonTypeCustom];
         textButton.frame = CGRectMake(BUTTON_X, leftButtonY, BUTTON_WIDTH, iconButtonHeight);
         [textButton setImage:[UIImage imageNamed:@"text-but" inBundle:currentBundle compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
@@ -109,8 +118,11 @@
         textButton.tag = 2;
         [self addSubview:textButton]; leftButtonY += (iconButtonHeight + buttonSpacing);
         titleY += (iconButtonHeight + buttonSpacing); titleHeight -= (iconButtonHeight + buttonSpacing);
+        }
         
         //Highlight Button
+        if (configuration == nil || (configuration != nil && configuration.showMarkText == YES))
+        {
         highlightButton = [UIButton buttonWithType:UIButtonTypeCustom];
         highlightButton.frame = CGRectMake(BUTTON_X, leftButtonY, BUTTON_WIDTH, iconButtonHeight);
         [highlightButton setImage:[UIImage imageNamed:@"squarefill-but" inBundle:currentBundle compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
@@ -122,8 +134,11 @@
         highlightButton.tag = 3;
         [self addSubview:highlightButton]; leftButtonY += (iconButtonHeight + buttonSpacing);
         titleY += (iconButtonHeight + buttonSpacing); titleHeight -= (iconButtonHeight + buttonSpacing);
+        }
         
         //Line Button
+        if (configuration == nil || (configuration != nil && configuration.showDrawLine == YES))
+        {
         lineButton = [UIButton buttonWithType:UIButtonTypeCustom];
         lineButton.frame = CGRectMake(BUTTON_X, leftButtonY, BUTTON_WIDTH, iconButtonHeight);
         [lineButton setImage:[UIImage imageNamed:@"line-but" inBundle:currentBundle compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
@@ -135,8 +150,11 @@
         lineButton.tag = 4;
         [self addSubview:lineButton]; leftButtonY += (iconButtonHeight + buttonSpacing);
         titleY += (iconButtonHeight + buttonSpacing); titleHeight -= (iconButtonHeight + buttonSpacing);
+        }
         
         //Square Button
+        if (configuration == nil || (configuration != nil && configuration.showDrawRectangle == YES))
+        {
         squareButton = [UIButton buttonWithType:UIButtonTypeCustom];
         squareButton.frame = CGRectMake(BUTTON_X, leftButtonY, BUTTON_WIDTH, iconButtonHeight);
         [squareButton setImage:[UIImage imageNamed:@"square-but" inBundle:currentBundle compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
@@ -148,8 +166,11 @@
         squareButton.tag = 5;
         [self addSubview:squareButton]; leftButtonY += (iconButtonHeight + buttonSpacing);
         titleY += (iconButtonHeight + buttonSpacing); titleHeight -= (iconButtonHeight + buttonSpacing);
+        }
         
         //Circle Button
+        if (configuration == nil || (configuration != nil && configuration.showDrawCircle == YES))
+        {
         circleButton = [UIButton buttonWithType:UIButtonTypeCustom];
         circleButton.frame = CGRectMake(BUTTON_X, leftButtonY, BUTTON_WIDTH, iconButtonHeight);
         [circleButton setImage:[UIImage imageNamed:@"circle-but" inBundle:currentBundle compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
@@ -161,8 +182,11 @@
         circleButton.tag = 6;
         [self addSubview:circleButton]; leftButtonY += (iconButtonHeight + buttonSpacing);
         titleY += (iconButtonHeight + buttonSpacing); titleHeight -= (iconButtonHeight + buttonSpacing);
+        }
         
         //CircleFill Button
+        if (configuration == nil || (configuration != nil && configuration.showDrawFilledCircle == YES))
+        {
         circleFillButton = [UIButton buttonWithType:UIButtonTypeCustom];
         circleFillButton.frame = CGRectMake(BUTTON_X, leftButtonY, BUTTON_WIDTH, iconButtonHeight);
         [circleFillButton setImage:[UIImage imageNamed:@"circlefill-but" inBundle:currentBundle compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
@@ -174,8 +198,11 @@
         circleFillButton.tag = 7;
         [self addSubview:circleFillButton]; leftButtonY += (iconButtonHeight + buttonSpacing);
         titleY += (iconButtonHeight + buttonSpacing); titleHeight -= (iconButtonHeight + buttonSpacing);
+        }
         
         //Eraser Button
+        if (configuration == nil || (configuration != nil && configuration.showErasor == YES))
+        {
         eraserButton = [UIButton buttonWithType:UIButtonTypeCustom];
         eraserButton.frame = CGRectMake(BUTTON_X, leftButtonY, BUTTON_WIDTH, iconButtonHeight);
         [eraserButton setImage:[UIImage imageNamed:@"eraser-but" inBundle:currentBundle compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
@@ -187,8 +214,11 @@
         eraserButton.tag = 8;
         [self addSubview:eraserButton]; leftButtonY += (iconButtonHeight + buttonSpacing);
         titleY += (iconButtonHeight + buttonSpacing); titleHeight -= (iconButtonHeight + buttonSpacing);
+        }
         
         //Color Button
+        if (configuration == nil || (configuration != nil && configuration.showPencilOptions == YES))
+        {
         colorButton = [UIButton buttonWithType:UIButtonTypeCustom];
         colorButton.frame = CGRectMake(BUTTON_X, leftButtonY, BUTTON_WIDTH, iconButtonHeight);
         [colorButton setImage:[self getColorButtonImage:[UIColor blueColor] withSize:[NSNumber numberWithFloat:17.f]] forState:UIControlStateNormal];
@@ -200,9 +230,11 @@
         colorButton.tag = 9;
         [self addSubview:colorButton]; leftButtonY += (iconButtonHeight + buttonSpacing);
         titleY += (iconButtonHeight + buttonSpacing); titleHeight -= (iconButtonHeight + buttonSpacing);
-        
+        }
         
         //Undo Button
+        if (configuration == nil || (configuration != nil && configuration.showUndoDraw == YES))
+        {
         undoButton = [UIButton buttonWithType:UIButtonTypeCustom];
         undoButton.frame = CGRectMake(BUTTON_X, leftButtonY, BUTTON_WIDTH, iconButtonHeight);
         [undoButton setImage:[UIImage imageNamed:@"undo-but" inBundle:currentBundle compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
@@ -214,8 +246,11 @@
         undoButton.tag = 10;
         [self addSubview:undoButton]; leftButtonY += (iconButtonHeight + buttonSpacing);
         titleY += (iconButtonHeight + buttonSpacing); titleHeight -= (iconButtonHeight + buttonSpacing);
+        }
         
         //Redo Button
+        if (configuration == nil || (configuration != nil && configuration.showRedoDraw == YES))
+        {
         redoButton = [UIButton buttonWithType:UIButtonTypeCustom];
         redoButton.frame = CGRectMake(BUTTON_X, leftButtonY, BUTTON_WIDTH, iconButtonHeight);
         [redoButton setImage:[UIImage imageNamed:@"redo-but" inBundle:currentBundle compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
@@ -227,8 +262,11 @@
         redoButton.tag = 11;
         [self addSubview:redoButton]; leftButtonY += (iconButtonHeight + buttonSpacing);
         titleY += (iconButtonHeight + buttonSpacing); titleHeight -= (iconButtonHeight + buttonSpacing);
+        }
         
         //Clear Button
+        if (configuration == nil || (configuration != nil && configuration.showClear == YES))
+        {
         clearButton = [UIButton buttonWithType:UIButtonTypeCustom];
         clearButton.frame = CGRectMake(BUTTON_X, leftButtonY, BUTTON_WIDTH, iconButtonHeight);
         [clearButton setImage:[UIImage imageNamed:@"clear-but" inBundle:currentBundle compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
@@ -242,6 +280,7 @@
         //titleY += (iconButtonHeight + buttonSpacing); titleHeight -= (iconButtonHeight + buttonSpacing);
         
         [self clearButtonSelection:12];
+        }
     }
     
     return self;

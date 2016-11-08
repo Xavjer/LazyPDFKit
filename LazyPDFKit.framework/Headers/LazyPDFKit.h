@@ -55,3 +55,4 @@ FOUNDATION_EXPORT const unsigned char LazyPDFKitVersionString[];
 #import <LazyPDFKit/UIXToolbarView.h>
 #import <LazyPDFKit/File.h>
 #import <LazyPDFKit/Annotation.h>
+#import <LazyPDFKit/LazyPDFConfiguration.h>

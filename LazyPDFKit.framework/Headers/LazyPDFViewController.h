@@ -38,7 +38,11 @@
 
 @end
 
+@class LazyPDFConfiguration;
+
 @class LazyPDFDrawingView;
+
+@class LazyPDFMainToolbar;
 
 @interface LazyPDFViewController : UIViewController
 {
@@ -48,10 +52,10 @@
 @property (nonatomic , strong) UIColor *lineColor;
 @property (nonatomic , strong) NSNumber *lineWidth;
 @property (nonatomic , strong) NSNumber *lineAlpha;
-@property (nonatomic, assign) BOOL hideFlattenPDF;
 
 @property (nonatomic, weak, readwrite) id <LazyPDFViewControllerDelegate> delegate;
 
 - (instancetype)initWithLazyPDFDocument:(LazyPDFDocument *)object;
+- (instancetype)initWithLazyPDFConfiguration:(LazyPDFConfiguration *)config;
 
 @end

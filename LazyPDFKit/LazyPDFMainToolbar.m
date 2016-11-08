@@ -26,12 +26,18 @@
 #import "LazyPDFConstants.h"
 #import "LazyPDFMainToolbar.h"
 #import "LazyPDFDocument.h"
+#import "LazyPDFConfiguration.h"
 
 #import <MessageUI/MessageUI.h>
 
 @implementation LazyPDFMainToolbar
 {
+    LazyPDFConfiguration *configuration;
 	UIButton *markButton;
+    UIButton *thumbsButton;
+    UIButton *emailButton;
+    UIButton *printButton;
+    UIButton *exportButton;
 
 	UIImage *markImageN;
 	UIImage *markImageY;
@@ -61,13 +67,15 @@
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
-	return [self initWithFrame:frame document:nil];
+    return [self initWithFrame:frame document:nil config: nil];
 }
 
-- (instancetype)initWithFrame:(CGRect)frame document:(LazyPDFDocument *)document
+- (instancetype)initWithFrame:(CGRect)frame document:(LazyPDFDocument *)document config:(LazyPDFConfiguration *) config
 {
 	assert(document != nil); // Must have a valid LazyPDFDocument
 
+    configuration = config;
+    
 	if ((self = [super initWithFrame:frame]))
 	{
 		CGFloat viewWidth = self.bounds.size.width; // Toolbar view width
@@ -98,129 +106,139 @@
 		doneButton.frame = CGRectMake(leftButtonX, BUTTON_Y, doneButtonWidth, BUTTON_HEIGHT);
 		[doneButton setTitleColor:[UIColor colorWithWhite:0.0f alpha:1.0f] forState:UIControlStateNormal];
 		[doneButton setTitleColor:[UIColor colorWithWhite:1.0f alpha:1.0f] forState:UIControlStateHighlighted];
-		[doneButton setTitle:doneButtonText forState:UIControlStateNormal]; doneButton.titleLabel.font = doneButtonFont;
-		[doneButton addTarget:self action:@selector(doneButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
-		[doneButton setBackgroundImage:buttonH forState:UIControlStateHighlighted];
-		[doneButton setBackgroundImage:buttonN forState:UIControlStateNormal];
-		doneButton.autoresizingMask = UIViewAutoresizingNone;
-		//doneButton.backgroundColor = [UIColor grayColor];
-		doneButton.exclusiveTouch = YES;
-
-		[self addSubview:doneButton]; leftButtonX += (doneButtonWidth + buttonSpacing);
-
-		titleX += (doneButtonWidth + buttonSpacing); titleWidth -= (doneButtonWidth + buttonSpacing);
-
+        [doneButton setTitle:doneButtonText forState:UIControlStateNormal]; doneButton.titleLabel.font = doneButtonFont;
+        [doneButton addTarget:self action:@selector(doneButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+        [doneButton setBackgroundImage:buttonH forState:UIControlStateHighlighted];
+        [doneButton setBackgroundImage:buttonN forState:UIControlStateNormal];
+        doneButton.autoresizingMask = UIViewAutoresizingNone;
+        //doneButton.backgroundColor = [UIColor grayColor];
+        doneButton.exclusiveTouch = YES;
+        
+        [self addSubview:doneButton]; leftButtonX += (doneButtonWidth + buttonSpacing);
+        
+        titleX += (doneButtonWidth + buttonSpacing); titleWidth -= (doneButtonWidth + buttonSpacing);
+        
 #endif // end of LazyPDF_STANDALONE Option
-
+        
 #if (LazyPDF_ENABLE_THUMBS == TRUE) // Option
-
-		UIButton *thumbsButton = [UIButton buttonWithType:UIButtonTypeCustom];
-		thumbsButton.frame = CGRectMake(leftButtonX, BUTTON_Y, iconButtonWidth, BUTTON_HEIGHT);
-		[thumbsButton setImage:[UIImage imageNamed:@"LazyPDF-Thumbs" inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
-		[thumbsButton addTarget:self action:@selector(thumbsButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
-		[thumbsButton setBackgroundImage:buttonH forState:UIControlStateHighlighted];
-		[thumbsButton setBackgroundImage:buttonN forState:UIControlStateNormal];
-		thumbsButton.autoresizingMask = UIViewAutoresizingNone;
-		//thumbsButton.backgroundColor = [UIColor grayColor];
-		thumbsButton.exclusiveTouch = YES;
-
-		[self addSubview:thumbsButton]; //leftButtonX += (iconButtonWidth + buttonSpacing);
-
-		titleX += (iconButtonWidth + buttonSpacing); titleWidth -= (iconButtonWidth + buttonSpacing);
-
+        if (configuration == nil || (configuration != nil && configuration.showThumbsButton == YES))
+        {
+            thumbsButton = [UIButton buttonWithType:UIButtonTypeCustom];
+            thumbsButton.frame = CGRectMake(leftButtonX, BUTTON_Y, iconButtonWidth, BUTTON_HEIGHT);
+            [thumbsButton setImage:[UIImage imageNamed:@"LazyPDF-Thumbs" inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
+            [thumbsButton addTarget:self action:@selector(thumbsButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+            [thumbsButton setBackgroundImage:buttonH forState:UIControlStateHighlighted];
+            [thumbsButton setBackgroundImage:buttonN forState:UIControlStateNormal];
+            thumbsButton.autoresizingMask = UIViewAutoresizingNone;
+            //thumbsButton.backgroundColor = [UIColor grayColor];
+            thumbsButton.exclusiveTouch = YES;
+            
+            [self addSubview:thumbsButton]; //leftButtonX += (iconButtonWidth + buttonSpacing);
+            
+            titleX += (iconButtonWidth + buttonSpacing); titleWidth -= (iconButtonWidth + buttonSpacing);
+        }
 #endif // end of LazyPDF_ENABLE_THUMBS Option
-
-		CGFloat rightButtonX = viewWidth; // Right-side buttons start X position
-
+        
+        CGFloat rightButtonX = viewWidth; // Right-side buttons start X position
+        
 #if (LazyPDF_BOOKMARKS == TRUE) // Option
-
-		rightButtonX -= (iconButtonWidth + buttonSpacing); // Position
-
-		UIButton *flagButton = [UIButton buttonWithType:UIButtonTypeCustom];
-		flagButton.frame = CGRectMake(rightButtonX, BUTTON_Y, iconButtonWidth, BUTTON_HEIGHT);
-		//[flagButton setImage:[UIImage imageNamed:@"LazyPDF-Mark-N"] forState:UIControlStateNormal];
-		[flagButton addTarget:self action:@selector(markButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
-		[flagButton setBackgroundImage:buttonH forState:UIControlStateHighlighted];
-		[flagButton setBackgroundImage:buttonN forState:UIControlStateNormal];
-		flagButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
-		//flagButton.backgroundColor = [UIColor grayColor];
-		flagButton.exclusiveTouch = YES;
-
-		[self addSubview:flagButton]; titleWidth -= (iconButtonWidth + buttonSpacing);
-
-		markButton = flagButton; markButton.enabled = NO; markButton.tag = NSIntegerMin;
-
-		markImageN = [UIImage imageNamed:@"LazyPDF-Mark-N" inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil]; // N image
-		markImageY = [UIImage imageNamed:@"LazyPDF-Mark-Y" inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil]; // Y image
-
+        if (configuration == nil || (configuration != nil && configuration.showBookmarkButton == YES))
+        {
+            rightButtonX -= (iconButtonWidth + buttonSpacing); // Position
+            
+            UIButton *flagButton = [UIButton buttonWithType:UIButtonTypeCustom];
+            flagButton.frame = CGRectMake(rightButtonX, BUTTON_Y, iconButtonWidth, BUTTON_HEIGHT);
+            //[flagButton setImage:[UIImage imageNamed:@"LazyPDF-Mark-N"] forState:UIControlStateNormal];
+            [flagButton addTarget:self action:@selector(markButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+            [flagButton setBackgroundImage:buttonH forState:UIControlStateHighlighted];
+            [flagButton setBackgroundImage:buttonN forState:UIControlStateNormal];
+            flagButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
+            //flagButton.backgroundColor = [UIColor grayColor];
+            flagButton.exclusiveTouch = YES;
+            
+            [self addSubview:flagButton]; titleWidth -= (iconButtonWidth + buttonSpacing);
+            
+            markButton = flagButton; markButton.enabled = NO; markButton.tag = NSIntegerMin;
+            
+            markImageN = [UIImage imageNamed:@"LazyPDF-Mark-N" inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil]; // N image
+            markImageY = [UIImage imageNamed:@"LazyPDF-Mark-Y" inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil]; // Y image
+        }
 #endif // end of LazyPDF_BOOKMARKS Option
-
-		if (document.canEmail == YES) // Document email enabled
-		{
-			if ([MFMailComposeViewController canSendMail] == YES) // Can email
-			{
-				unsigned long long fileSize = [document.fileSize unsignedLongLongValue];
-
-				if (fileSize < 15728640ull) // Check attachment size limit (15MB)
-				{
-					rightButtonX -= (iconButtonWidth + buttonSpacing); // Next position
-
-					UIButton *emailButton = [UIButton buttonWithType:UIButtonTypeCustom];
-					emailButton.frame = CGRectMake(rightButtonX, BUTTON_Y, iconButtonWidth, BUTTON_HEIGHT);
-					[emailButton setImage:[UIImage imageNamed:@"LazyPDF-Email" inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
-					[emailButton addTarget:self action:@selector(emailButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
-					[emailButton setBackgroundImage:buttonH forState:UIControlStateHighlighted];
-					[emailButton setBackgroundImage:buttonN forState:UIControlStateNormal];
-					emailButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
-					//emailButton.backgroundColor = [UIColor grayColor];
-					emailButton.exclusiveTouch = YES;
-
-					[self addSubview:emailButton]; titleWidth -= (iconButtonWidth + buttonSpacing);
-				}
-			}
-		}
-
-		if ((document.canPrint == YES) && (document.password == nil)) // Document print enabled
-		{
-			Class printInteractionController = NSClassFromString(@"UIPrintInteractionController");
-
-			if ((printInteractionController != nil) && [printInteractionController isPrintingAvailable])
-			{
-				rightButtonX -= (iconButtonWidth + buttonSpacing); // Next position
-
-				UIButton *printButton = [UIButton buttonWithType:UIButtonTypeCustom];
-				printButton.frame = CGRectMake(rightButtonX, BUTTON_Y, iconButtonWidth, BUTTON_HEIGHT);
-				[printButton setImage:[UIImage imageNamed:@"LazyPDF-Print" inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
-				[printButton addTarget:self action:@selector(printButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
-				[printButton setBackgroundImage:buttonH forState:UIControlStateHighlighted];
-				[printButton setBackgroundImage:buttonN forState:UIControlStateNormal];
-				printButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
-				//printButton.backgroundColor = [UIColor grayColor];
-				printButton.exclusiveTouch = YES;
-
-				[self addSubview:printButton]; titleWidth -= (iconButtonWidth + buttonSpacing);
-			}
-		}
-
-		if (document.canExport == YES) // Document export enabled
-		{
-			rightButtonX -= (iconButtonWidth + buttonSpacing); // Next position
-
-			UIButton *exportButton = [UIButton buttonWithType:UIButtonTypeCustom];
-			exportButton.frame = CGRectMake(rightButtonX, BUTTON_Y, iconButtonWidth, BUTTON_HEIGHT);
-			[exportButton setImage:[UIImage imageNamed:@"LazyPDF-Export" inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
-			[exportButton addTarget:self action:@selector(exportButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
-			[exportButton setBackgroundImage:buttonH forState:UIControlStateHighlighted];
-			[exportButton setBackgroundImage:buttonN forState:UIControlStateNormal];
-			exportButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
-			//exportButton.backgroundColor = [UIColor grayColor];
-			exportButton.exclusiveTouch = YES;
-
-			[self addSubview:exportButton]; titleWidth -= (iconButtonWidth + buttonSpacing);
-		}
-
-		if (largeDevice == YES) // Show document filename in toolbar
-		{
+        if (configuration == nil || (configuration != nil && configuration.showEmailButton == YES))
+        {
+            if (document.canEmail == YES) // Document email enabled
+            {
+                if ([MFMailComposeViewController canSendMail] == YES) // Can email
+                {
+                    unsigned long long fileSize = [document.fileSize unsignedLongLongValue];
+                    
+                    if (fileSize < 15728640ull) // Check attachment size limit (15MB)
+                    {
+                        rightButtonX -= (iconButtonWidth + buttonSpacing); // Next position
+                        
+                        emailButton = [UIButton buttonWithType:UIButtonTypeCustom];
+                        emailButton.frame = CGRectMake(rightButtonX, BUTTON_Y, iconButtonWidth, BUTTON_HEIGHT);
+                        [emailButton setImage:[UIImage imageNamed:@"LazyPDF-Email" inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
+                        [emailButton addTarget:self action:@selector(emailButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+                        [emailButton setBackgroundImage:buttonH forState:UIControlStateHighlighted];
+                        [emailButton setBackgroundImage:buttonN forState:UIControlStateNormal];
+                        emailButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
+                        //emailButton.backgroundColor = [UIColor grayColor];
+                        emailButton.exclusiveTouch = YES;
+                        
+                        [self addSubview:emailButton]; titleWidth -= (iconButtonWidth + buttonSpacing);
+                    }
+                }
+            }
+        }
+        
+        if (configuration == nil || (configuration != nil && configuration.showPrintButton == YES))
+        {
+            if ((document.canPrint == YES) && (document.password == nil)) // Document print enabled
+            {
+                Class printInteractionController = NSClassFromString(@"UIPrintInteractionController");
+                
+                if ((printInteractionController != nil) && [printInteractionController isPrintingAvailable])
+                {
+                    rightButtonX -= (iconButtonWidth + buttonSpacing); // Next position
+                    
+                    printButton = [UIButton buttonWithType:UIButtonTypeCustom];
+                    printButton.frame = CGRectMake(rightButtonX, BUTTON_Y, iconButtonWidth, BUTTON_HEIGHT);
+                    [printButton setImage:[UIImage imageNamed:@"LazyPDF-Print" inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
+                    [printButton addTarget:self action:@selector(printButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+                    [printButton setBackgroundImage:buttonH forState:UIControlStateHighlighted];
+                    [printButton setBackgroundImage:buttonN forState:UIControlStateNormal];
+                    printButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
+                    //printButton.backgroundColor = [UIColor grayColor];
+                    printButton.exclusiveTouch = YES;
+                    
+                    [self addSubview:printButton]; titleWidth -= (iconButtonWidth + buttonSpacing);
+                }
+            }
+        }
+        
+        if (configuration == nil || (configuration != nil && configuration.showExportButton == YES))
+        {
+            if (document.canExport == YES) // Document export enabled
+            {
+                rightButtonX -= (iconButtonWidth + buttonSpacing); // Next position
+                
+                exportButton = [UIButton buttonWithType:UIButtonTypeCustom];
+                exportButton.frame = CGRectMake(rightButtonX, BUTTON_Y, iconButtonWidth, BUTTON_HEIGHT);
+                [exportButton setImage:[UIImage imageNamed:@"LazyPDF-Export" inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
+                [exportButton addTarget:self action:@selector(exportButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+                [exportButton setBackgroundImage:buttonH forState:UIControlStateHighlighted];
+                [exportButton setBackgroundImage:buttonN forState:UIControlStateNormal];
+                exportButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
+                //exportButton.backgroundColor = [UIColor grayColor];
+                exportButton.exclusiveTouch = YES;
+                
+                [self addSubview:exportButton]; titleWidth -= (iconButtonWidth + buttonSpacing);
+            }
+        }
+        
+        if (largeDevice == YES) // Show document filename in toolbar
+        {
 			CGRect titleRect = CGRectMake(titleX, BUTTON_Y, titleWidth, TITLE_HEIGHT);
 
 			UILabel *titleLabel = [[UILabel alloc] initWithFrame:titleRect];
@@ -319,6 +337,53 @@
 			completion:NULL
 		];
 	}
+}
+
+#pragma mark - UIButton visibilities
+- (void)thumbsButton:(BOOL)isVisible
+{
+    [thumbsButton setHidden:!isVisible];
+    [self reloadInputViews];
+}
+- (BOOL)thumbsButtonVisibility
+{
+    return thumbsButton.hidden;
+}
+- (void)emailButton:(BOOL)isVisible
+{
+    [emailButton setHidden:!isVisible];
+    [self reloadInputViews];
+}
+- (BOOL)emailButtonVisibility
+{
+    return emailButton.hidden;
+}
+- (void)printButton:(BOOL)isVisible
+{
+    [printButton setHidden:!isVisible];
+    [self reloadInputViews];
+}
+- (BOOL)printButtonVisibility
+{
+    return printButton.hidden;
+}
+- (void)exportButton:(BOOL)isVisible
+{
+    [exportButton setHidden:!isVisible];
+    [self reloadInputViews];
+}
+- (BOOL)exportButtonVisibility
+{
+    return exportButton.hidden;
+}
+- (void)bookmarkButton:(BOOL)isVisible
+{
+    [markButton setHidden:!isVisible];
+    [self reloadInputViews];
+}
+- (BOOL)bookmarkButtonVisibility
+{
+    return markButton.hidden;
 }
 
 #pragma mark - UIButton action methods

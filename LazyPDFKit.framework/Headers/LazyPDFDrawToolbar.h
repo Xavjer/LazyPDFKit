@@ -12,6 +12,7 @@
 
 @class LazyPDFDrawToolbar;
 @class LazyPDFDocument;
+@class LazyPDFConfiguration;
 
 @protocol LazyPDFDrawToolbarDelegate <NSObject>
 
@@ -37,7 +38,7 @@
 @property (nonatomic,strong) UIButton *redoButton;
 @property (nonatomic,strong) UIButton *clearButton;
 
-- (instancetype)initWithFrame:(CGRect)frame document:(LazyPDFDocument *)document;
+- (instancetype)initWithFrame:(CGRect)frame document:(LazyPDFDocument *)document config:(LazyPDFConfiguration *) config;
 - (void)hideToolbar;
 - (void)showToolbar;
 - (UIImage *)getColorButtonImage:(UIColor *)color withSize:(NSNumber *)size;

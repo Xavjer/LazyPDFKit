@@ -29,6 +29,7 @@
 
 @class LazyPDFMainToolbar;
 @class LazyPDFDocument;
+@class LazyPDFConfiguration;
 
 @protocol LazyPDFMainToolbarDelegate <NSObject>
 
@@ -45,9 +46,10 @@
 
 @interface LazyPDFMainToolbar : UIXToolbarView
 
+
 @property (nonatomic, weak, readwrite) id <LazyPDFMainToolbarDelegate> delegate;
 
-- (instancetype)initWithFrame:(CGRect)frame document:(LazyPDFDocument *)document;
+- (instancetype)initWithFrame:(CGRect)frame document:(LazyPDFDocument *)document config:(LazyPDFConfiguration *)config;
 
 - (void)setBookmarkState:(BOOL)state;
 

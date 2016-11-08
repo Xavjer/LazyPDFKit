@@ -40,7 +40,33 @@
     
     if (document != nil) // Must have a valid LazyPDFDocument object in order to proceed with things
     {
-        LazyPDFViewController *lazyPDFViewController = [[LazyPDFViewController alloc] initWithLazyPDFDocument:document];
+        LazyPDFConfiguration *lpc = [[LazyPDFConfiguration alloc] init];
+        lpc.object = document;
+        
+        lpc.showFlattenPDF = YES;
+        lpc.showThumbsButton = YES;
+        lpc.showBookmarkButton = YES;
+        lpc.showEmailButton = YES;
+        lpc.showPrintButton = YES;
+        lpc.showExportButton = YES;
+        
+        lpc.showPencil = YES;
+        lpc.showWriteText = YES;
+        lpc.showMarkText = YES;
+        lpc.showDrawLine = YES;
+        lpc.showDrawRectangle = YES;
+        lpc.showDrawCircle = YES;
+        lpc.showDrawFilledCircle = YES;
+        lpc.showErasor = YES;
+        lpc.showPencilOptions = YES;
+        lpc.showUndoDraw = YES;
+        lpc.showRedoDraw = YES;
+        lpc.showClear = YES;
+        
+        lpc.showPageCount = NO;
+        lpc.showThumbsBar = YES;
+        
+        LazyPDFViewController *lazyPDFViewController = [[LazyPDFViewController alloc] initWithLazyPDFConfiguration:lpc];
         
         lazyPDFViewController.delegate = self; // Set the LazyPDFViewController delegate to self
         

@@ -31,6 +31,7 @@
 @class LazyPDFTrackControl;
 @class LazyPDFPagebarThumb;
 @class LazyPDFDocument;
+@class LazyPDFConfiguration;
 
 @protocol LazyPDFMainPagebarDelegate <NSObject>
 
@@ -44,7 +45,7 @@
 
 @property (nonatomic, weak, readwrite) id <LazyPDFMainPagebarDelegate> delegate;
 
-- (instancetype)initWithFrame:(CGRect)frame document:(LazyPDFDocument *)object;
+- (instancetype)initWithFrame:(CGRect)frame document:(LazyPDFDocument *)object config:(LazyPDFConfiguration *)config;
 
 - (void)updatePagebar;
 

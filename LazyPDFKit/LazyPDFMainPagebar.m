@@ -27,11 +27,14 @@
 #import "LazyPDFMainPagebar.h"
 #import "LazyPDFThumbCache.h"
 #import "LazyPDFDocument.h"
+#import "LazyPDFConfiguration.h"
 
 #import <QuartzCore/QuartzCore.h>
 
 @implementation LazyPDFMainPagebar
 {
+    LazyPDFConfiguration *configuration;
+    
 	LazyPDFDocument *document;
 
 	LazyPDFTrackControl *trackControl;
@@ -84,7 +87,7 @@
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
-	return [self initWithFrame:frame document:nil];
+    return [self initWithFrame:frame document:nil config:nil];
 }
 
 - (void)updatePageThumbView:(NSInteger)page
@@ -143,98 +146,108 @@
 	}
 }
 
-- (instancetype)initWithFrame:(CGRect)frame document:(LazyPDFDocument *)object
+- (instancetype)initWithFrame:(CGRect)frame document:(LazyPDFDocument *)object config:(LazyPDFConfiguration *)config
 {
 	assert(object != nil); // Must have a valid LazyPDFDocument
 
+    configuration = config;
+    
 	if ((self = [super initWithFrame:frame]))
 	{
 		self.autoresizesSubviews = YES;
 		self.userInteractionEnabled = YES;
 		self.contentMode = UIViewContentModeRedraw;
 		self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
-
-		if ([self.layer isKindOfClass:[CAGradientLayer class]])
-		{
-			self.backgroundColor = [UIColor clearColor];
-
-			CAGradientLayer *layer = (CAGradientLayer *)self.layer;
-			UIColor *liteColor = [UIColor colorWithWhite:0.82f alpha:0.8f];
-			UIColor *darkColor = [UIColor colorWithWhite:0.32f alpha:0.8f];
-			layer.colors = [NSArray arrayWithObjects:(id)liteColor.CGColor, (id)darkColor.CGColor, nil];
-
-			CGRect shadowRect = self.bounds; shadowRect.size.height = SHADOW_HEIGHT; shadowRect.origin.y -= shadowRect.size.height;
-
-			LazyPDFPagebarShadow *shadowView = [[LazyPDFPagebarShadow alloc] initWithFrame:shadowRect];
-
-			[self addSubview:shadowView]; // Add shadow to toolbar
-		}
-		else // Follow The Fuglyosity of Flat Fad
-		{
-			self.backgroundColor = [UIColor colorWithWhite:0.94f alpha:0.94f];
-
-			CGRect lineRect = self.bounds; lineRect.size.height = 1.0f; lineRect.origin.y -= lineRect.size.height;
-
-			UIView *lineView = [[UIView alloc] initWithFrame:lineRect];
-			lineView.autoresizesSubviews = NO;
-			lineView.userInteractionEnabled = NO;
-			lineView.contentMode = UIViewContentModeRedraw;
-			lineView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-			lineView.backgroundColor = [UIColor colorWithWhite:0.64f alpha:0.94f];
-			[self addSubview:lineView];
-		}
-
-		CGFloat space = (([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) ? PAGE_NUMBER_SPACE_LARGE : PAGE_NUMBER_SPACE_SMALL);
-		CGFloat numberY = (0.0f - (PAGE_NUMBER_HEIGHT + space)); CGFloat numberX = ((self.bounds.size.width - PAGE_NUMBER_WIDTH) * 0.5f);
-		CGRect numberRect = CGRectMake(numberX, numberY, PAGE_NUMBER_WIDTH, PAGE_NUMBER_HEIGHT);
-
-		pageNumberView = [[UIView alloc] initWithFrame:numberRect]; // Page numbers view
-
-		pageNumberView.autoresizesSubviews = NO;
-		pageNumberView.userInteractionEnabled = NO;
-		pageNumberView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
-		pageNumberView.backgroundColor = [UIColor colorWithWhite:0.0f alpha:0.4f];
-
-		pageNumberView.layer.shadowOffset = CGSizeMake(0.0f, 0.0f);
-		pageNumberView.layer.shadowColor = [UIColor colorWithWhite:0.0f alpha:0.6f].CGColor;
-		pageNumberView.layer.shadowPath = [UIBezierPath bezierPathWithRect:pageNumberView.bounds].CGPath;
-		pageNumberView.layer.shadowRadius = 2.0f; pageNumberView.layer.shadowOpacity = 1.0f;
-
-		CGRect textRect = CGRectInset(pageNumberView.bounds, 4.0f, 2.0f); // Inset the text a bit
-
-		pageNumberLabel = [[UILabel alloc] initWithFrame:textRect]; // Page numbers label
-
-		pageNumberLabel.autoresizesSubviews = NO;
-		pageNumberLabel.autoresizingMask = UIViewAutoresizingNone;
-		pageNumberLabel.textAlignment = NSTextAlignmentCenter;
-		pageNumberLabel.backgroundColor = [UIColor clearColor];
-		pageNumberLabel.textColor = [UIColor whiteColor];
-		pageNumberLabel.font = [UIFont systemFontOfSize:16.0f];
-		pageNumberLabel.shadowOffset = CGSizeMake(0.0f, 1.0f);
-		pageNumberLabel.shadowColor = [UIColor blackColor];
-		pageNumberLabel.adjustsFontSizeToFitWidth = YES;
-		pageNumberLabel.minimumScaleFactor = 0.75f;
-
-		[pageNumberView addSubview:pageNumberLabel]; // Add label view
-
-		[self addSubview:pageNumberView]; // Add page numbers display view
-
-		trackControl = [[LazyPDFTrackControl alloc] initWithFrame:self.bounds]; // Track control view
-
-		[trackControl addTarget:self action:@selector(trackViewTouchDown:) forControlEvents:UIControlEventTouchDown];
-		[trackControl addTarget:self action:@selector(trackViewValueChanged:) forControlEvents:UIControlEventValueChanged];
-		[trackControl addTarget:self action:@selector(trackViewTouchUp:) forControlEvents:UIControlEventTouchUpOutside];
-		[trackControl addTarget:self action:@selector(trackViewTouchUp:) forControlEvents:UIControlEventTouchUpInside];
-
-		[self addSubview:trackControl]; // Add the track control and thumbs view
-
-		document = object; // Retain the document object for our use
-
-		[self updatePageNumberText:[document.pageNumber integerValue]];
-
-		miniThumbViews = [NSMutableDictionary new]; // Small thumbs
-	}
-
+        
+        if (configuration == nil || configuration.showPageCount == YES)
+        {
+            CGFloat space = (([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) ? PAGE_NUMBER_SPACE_LARGE : PAGE_NUMBER_SPACE_SMALL);
+            CGFloat numberY = (0.0f - (PAGE_NUMBER_HEIGHT + space)); CGFloat numberX = ((self.bounds.size.width - PAGE_NUMBER_WIDTH) * 0.5f);
+            CGRect numberRect = CGRectMake(numberX, numberY, PAGE_NUMBER_WIDTH, PAGE_NUMBER_HEIGHT);
+            
+            pageNumberView = [[UIView alloc] initWithFrame:numberRect]; // Page numbers view
+            
+            pageNumberView.autoresizesSubviews = NO;
+            pageNumberView.userInteractionEnabled = NO;
+            pageNumberView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+            pageNumberView.backgroundColor = [UIColor colorWithWhite:0.0f alpha:0.4f];
+            
+            pageNumberView.layer.shadowOffset = CGSizeMake(0.0f, 0.0f);
+            pageNumberView.layer.shadowColor = [UIColor colorWithWhite:0.0f alpha:0.6f].CGColor;
+            pageNumberView.layer.shadowPath = [UIBezierPath bezierPathWithRect:pageNumberView.bounds].CGPath;
+            pageNumberView.layer.shadowRadius = 2.0f; pageNumberView.layer.shadowOpacity = 1.0f;
+            
+            CGRect textRect = CGRectInset(pageNumberView.bounds, 4.0f, 2.0f); // Inset the text a bit
+            
+            pageNumberLabel = [[UILabel alloc] initWithFrame:textRect]; // Page numbers label
+            
+            pageNumberLabel.autoresizesSubviews = NO;
+            pageNumberLabel.autoresizingMask = UIViewAutoresizingNone;
+            pageNumberLabel.textAlignment = NSTextAlignmentCenter;
+            pageNumberLabel.backgroundColor = [UIColor clearColor];
+            pageNumberLabel.textColor = [UIColor whiteColor];
+            pageNumberLabel.font = [UIFont systemFontOfSize:16.0f];
+            pageNumberLabel.shadowOffset = CGSizeMake(0.0f, 1.0f);
+            pageNumberLabel.shadowColor = [UIColor blackColor];
+            pageNumberLabel.adjustsFontSizeToFitWidth = YES;
+            pageNumberLabel.minimumScaleFactor = 0.75f;
+            
+            [pageNumberView addSubview:pageNumberLabel]; // Add label view
+            
+            [self addSubview:pageNumberView]; // Add page numbers display view
+            
+        }
+        
+        if (configuration == nil || configuration.showThumbsBar == YES)
+        {
+            if ([self.layer isKindOfClass:[CAGradientLayer class]])
+            {
+                self.backgroundColor = [UIColor clearColor];
+                
+                CAGradientLayer *layer = (CAGradientLayer *)self.layer;
+                UIColor *liteColor = [UIColor colorWithWhite:0.82f alpha:0.8f];
+                UIColor *darkColor = [UIColor colorWithWhite:0.32f alpha:0.8f];
+                layer.colors = [NSArray arrayWithObjects:(id)liteColor.CGColor, (id)darkColor.CGColor, nil];
+                
+                CGRect shadowRect = self.bounds; shadowRect.size.height = SHADOW_HEIGHT; shadowRect.origin.y -= shadowRect.size.height;
+                
+                LazyPDFPagebarShadow *shadowView = [[LazyPDFPagebarShadow alloc] initWithFrame:shadowRect];
+                
+                [self addSubview:shadowView]; // Add shadow to toolbar
+            }
+            else // Follow The Fuglyosity of Flat Fad
+            {
+                self.backgroundColor = [UIColor colorWithWhite:0.94f alpha:0.94f];
+                
+                CGRect lineRect = self.bounds; lineRect.size.height = 1.0f; lineRect.origin.y -= lineRect.size.height;
+                
+                UIView *lineView = [[UIView alloc] initWithFrame:lineRect];
+                lineView.autoresizesSubviews = NO;
+                lineView.userInteractionEnabled = NO;
+                lineView.contentMode = UIViewContentModeRedraw;
+                lineView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+                lineView.backgroundColor = [UIColor colorWithWhite:0.64f alpha:0.94f];
+                [self addSubview:lineView];
+            }
+            
+            trackControl = [[LazyPDFTrackControl alloc] initWithFrame:self.bounds]; // Track control view
+            
+            [trackControl addTarget:self action:@selector(trackViewTouchDown:) forControlEvents:UIControlEventTouchDown];
+            [trackControl addTarget:self action:@selector(trackViewValueChanged:) forControlEvents:UIControlEventValueChanged];
+            [trackControl addTarget:self action:@selector(trackViewTouchUp:) forControlEvents:UIControlEventTouchUpOutside];
+            [trackControl addTarget:self action:@selector(trackViewTouchUp:) forControlEvents:UIControlEventTouchUpInside];
+            
+            [self addSubview:trackControl]; // Add the track control and thumbs view
+            
+        }
+        
+        document = object; // Retain the document object for our use
+        
+        [self updatePageNumberText:[document.pageNumber integerValue]];
+        
+        miniThumbViews = [NSMutableDictionary new]; // Small thumbs
+    }
+    
 	return self;
 }
 
