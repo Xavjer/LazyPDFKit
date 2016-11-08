@@ -48,6 +48,7 @@
 @property (nonatomic , strong) UIColor *lineColor;
 @property (nonatomic , strong) NSNumber *lineWidth;
 @property (nonatomic , strong) NSNumber *lineAlpha;
+@property (nonatomic, assign) BOOL hideFlattenPDF;
 
 @property (nonatomic, weak, readwrite) id <LazyPDFViewControllerDelegate> delegate;
 

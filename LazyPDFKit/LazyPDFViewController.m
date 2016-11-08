@@ -85,6 +85,8 @@ LazyPDFMainToolbarDelegate, LazyPDFMainPagebarDelegate, LazyPDFContentViewDelega
     NSDate *lastHideTime;
     
     BOOL ignoreDidScroll;
+    
+    BOOL hideFlattenPDF;
 }
 
 #pragma mark - Constants
@@ -319,6 +321,8 @@ LazyPDFMainToolbarDelegate, LazyPDFMainPagebarDelegate, LazyPDFContentViewDelega
     {
         if ((object != nil) && ([object isKindOfClass:[LazyPDFDocument class]])) // Valid object
         {
+            hideFlattenPDF = NO;
+            
             userInterfaceIdiom = [UIDevice currentDevice].userInterfaceIdiom; // User interface idiom
             
             NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter]; // Default notification center
@@ -391,15 +395,18 @@ LazyPDFMainToolbarDelegate, LazyPDFMainPagebarDelegate, LazyPDFContentViewDelega
     drawToolbar.delegate = self; // LazyPDFDrawToolbarDelegate
     [self.view addSubview:drawToolbar];
     
-    CGRect flattenRect = CGRectMake(self.view.bounds.size.width-120, viewRect.origin.y+TOOLBAR_HEIGHT+10, 110, 40);
-    flattenPDFButton = [[UIButton alloc] initWithFrame:flattenRect];
-    [flattenPDFButton setTitle:@"Flatten PDF" forState:UIControlStateNormal];
-    [flattenPDFButton setTintColor:[UIColor blueColor]];
-    [flattenPDFButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-    [flattenPDFButton addTarget:self action:@selector(flattenPDF) forControlEvents:UIControlEventTouchUpInside];
-    //[[flattenPDFButton layer] setBorderWidth:2.0];
-    //[[flattenPDFButton layer] setBorderColor:[UIColor blueColor].CGColor];
-    [self.view addSubview:flattenPDFButton];
+    if (hideFlattenPDF == YES)
+    {
+        CGRect flattenRect = CGRectMake(self.view.bounds.size.width-120, viewRect.origin.y+TOOLBAR_HEIGHT+10, 110, 40);
+        flattenPDFButton = [[UIButton alloc] initWithFrame:flattenRect];
+        [flattenPDFButton setTitle:@"Flatten PDF" forState:UIControlStateNormal];
+        [flattenPDFButton setTintColor:[UIColor blueColor]];
+        [flattenPDFButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+        [flattenPDFButton addTarget:self action:@selector(flattenPDF) forControlEvents:UIControlEventTouchUpInside];
+        //[[flattenPDFButton layer] setBorderWidth:2.0];
+        //[[flattenPDFButton layer] setBorderColor:[UIColor blueColor].CGColor];
+        [self.view addSubview:flattenPDFButton];
+    }
     
     CGRect pagebarRect = self.view.bounds; pagebarRect.size.height = PAGEBAR_HEIGHT;
     pagebarRect.origin.y = (self.view.bounds.size.height - pagebarRect.size.height);
