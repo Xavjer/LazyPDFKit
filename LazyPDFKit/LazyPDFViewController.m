@@ -1140,7 +1140,7 @@ LazyPDFMainToolbarDelegate, LazyPDFMainPagebarDelegate, LazyPDFContentViewDelega
                     subview2.userInteractionEnabled = YES;
                     LazyPDFContentPage *contentPage = (LazyPDFContentPage *)subview2;
                     [contentPage hideDrawingView];
-                    if (self.drawingView==nil && button.tag<=8){
+                    if (self.drawingView==nil){ //&& button.tag<=8){
                         //only edit mode buttons till circle fill
                         self.drawingView = [[LazyPDFDrawingView alloc] initWithFrame:contentPage.frame];
                         UIImage *drawingImage = [contentPage getDrawingImage];
@@ -1205,19 +1205,34 @@ LazyPDFMainToolbarDelegate, LazyPDFMainPagebarDelegate, LazyPDFContentViewDelega
                                 //undo button
                                 [self.drawingView undoLatestStep];
                                 [self updateButtonStatus];
+                                if ([self.drawingView drawTool] == LazyPDFDrawingToolTypeNone)
+                                {
+                                    [drawToolbar clearButtonSelection:8];
+                                    [self saveAnnotation];
+                                }
                                 break;
                             case 11:
                                 //redo button
                                 [self.drawingView redoLatestStep];
                                 [self updateButtonStatus];
+                                if ([self.drawingView drawTool] == LazyPDFDrawingToolTypeNone)
+                                {
+                                    [drawToolbar clearButtonSelection:8];
+                                    [self saveAnnotation];
+                                }
                                 break;
                             case 12:
                                 //clear button
                                 [self.drawingView clear];
                                 [self updateButtonStatus];
+                                if ([self.drawingView drawTool] == LazyPDFDrawingToolTypeNone)
+                                {
+                                    [drawToolbar clearButtonSelection:8];
+                                    [self saveAnnotation];
+                                }
                                 break;
                             default:
-                                self.drawingView.drawTool = LazyPDFDrawingToolTypePen;
+                                self.drawingView.drawTool = LazyPDFDrawingToolTypeNone;
                                 break;
                         }
                         [self updateDrawingView];

@@ -28,6 +28,7 @@
 #define LazyPDFDrawingViewVersion   1.0.0
 
 typedef enum {
+    LazyPDFDrawingToolTypeNone,
     LazyPDFDrawingToolTypePen,
     LazyPDFDrawingToolTypeLine,
     LazyPDFDrawingToolTypeRectagleStroke,

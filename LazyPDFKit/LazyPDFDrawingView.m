@@ -154,6 +154,10 @@
 - (id<LazyPDFDrawingTool>)toolWithCurrentSettings
 {
     switch (self.drawTool) {
+        case LazyPDFDrawingToolTypeNone:
+        {
+            return nil;
+        }
         case LazyPDFDrawingToolTypePen:
         {
             return LazyPDF_AUTORELEASE([LazyPDFDrawingPenTool new]);

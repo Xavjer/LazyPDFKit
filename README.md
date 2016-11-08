@@ -118,5 +118,5 @@ Email: -
 
 
 #Acknowledgements
-LAZY PDFKit : https://github.com/lazyprogram/LazyPDFKit
+Lazy PDFKit : https://github.com/lazyprogram/LazyPDFKit
 VFR Reader : https://github.com/vfr/Reader
