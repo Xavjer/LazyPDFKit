@@ -63,7 +63,7 @@
         lpc.showRedoDraw = YES;
         lpc.showClear = YES;
         
-        lpc.showPageCount = NO;
+        lpc.showPageCount = YES;
         lpc.showThumbsBar = YES;
         
         LazyPDFViewController *lazyPDFViewController = [[LazyPDFViewController alloc] initWithLazyPDFConfiguration:lpc];
