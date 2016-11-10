@@ -46,7 +46,7 @@
 @property (nonatomic, strong) NSMutableArray *bufferArray;
 @property (nonatomic, strong) id<LazyPDFDrawingTool> currentTool;
 @property (nonatomic, strong) UIImage *image;
-@property (nonatomic, strong) UITextView *textView;
+//@property (nonatomic, strong) UITextView *textView;
 @property (nonatomic, assign) CGFloat originalFrameYPos;
 @end
 
@@ -354,7 +354,10 @@
 }
 
 - (void)textViewDidEndEditing:(UITextView *)textView{
-    [self commitAndHideTextEntry];
+    if (textView.userInteractionEnabled)
+    {
+        [self commitAndHideTextEntry];
+    }
 }
 
 -(void)resizeTextViewFrame: (CGPoint)adjustedSize {

@@ -1301,6 +1301,12 @@ LazyPDFMainToolbarDelegate, LazyPDFMainPagebarDelegate, LazyPDFContentViewDelega
 }
 -(void)openProperty:(UIButton *)button
 {
+    if (self.drawingView.drawTool == LazyPDFDrawingToolTypeText)
+    {
+        [self.drawingView.textView setUserInteractionEnabled:NO];
+        [self.drawingView.textView resignFirstResponder];
+    }
+    
     lazyPropertyController = nil;
     
     lazyPropertyController = [[LazyPDFPropertyController alloc] init];
@@ -1308,6 +1314,8 @@ LazyPDFMainToolbarDelegate, LazyPDFMainPagebarDelegate, LazyPDFContentViewDelega
     lazyPropertyController.lineAlpha = self.lineAlpha;
     lazyPropertyController.lineWidth = self.lineWidth;
     lazyPropertyController.colorButton = drawToolbar.colorButton;
+    
+    lazyPropertyController.lPDF = self;
     
     navController = nil;
     navController = [[UINavigationController alloc] initWithRootViewController:lazyPropertyController];
@@ -1321,6 +1329,19 @@ LazyPDFMainToolbarDelegate, LazyPDFMainPagebarDelegate, LazyPDFContentViewDelega
     lazyPropertyController.popover = popover;
     [popover presentPopoverFromView:button];
 }
+
+-(void)updateProperties
+{
+    if (self.drawingView.drawTool == LazyPDFDrawingToolTypeText)
+    {
+        int calculatedFontSize = [lazyPropertyController.lineWidth intValue] * 3;
+        
+        [self.drawingView.textView setFont:[UIFont systemFontOfSize:calculatedFontSize]];
+        self.drawingView.textView.textColor = lazyPropertyController.lineColor;
+        self.drawingView.textView.alpha = [lazyPropertyController.lineAlpha floatValue];
+    }
+}
+
 #pragma mark - LazyPDFDrawing View Delegate
 - (void)drawingView:(LazyPDFDrawingView *)view didEndDrawUsingTool:(id<LazyPDFDrawingTool>)tool;
 {
@@ -1339,6 +1360,19 @@ LazyPDFMainToolbarDelegate, LazyPDFMainPagebarDelegate, LazyPDFContentViewDelega
         self.lineColor = lazyPDFProperty.lineColor;
         self.lineAlpha = lazyPDFProperty.lineAlpha;
         self.lineWidth = lazyPDFProperty.lineWidth;
+        
+        if (self.drawingView.drawTool == LazyPDFDrawingToolTypeText)
+        {
+            int calculatedFontSize = [self.lineWidth intValue] * 3;
+            
+            [self.drawingView.textView setFont:[UIFont systemFontOfSize:calculatedFontSize]];
+            self.drawingView.textView.textColor = self.lineColor;
+            self.drawingView.textView.alpha = [self.lineAlpha floatValue];
+            
+            [self.drawingView.textView setUserInteractionEnabled:YES];
+            [self.drawingView.textView becomeFirstResponder];
+        }
+        
         [self updateDrawingView];
     }
 }

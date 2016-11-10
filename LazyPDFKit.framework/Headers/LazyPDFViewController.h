@@ -55,6 +55,8 @@
 
 @property (nonatomic, weak, readwrite) id <LazyPDFViewControllerDelegate> delegate;
 
+- (void)updateProperties;
+
 - (instancetype)initWithLazyPDFDocument:(LazyPDFDocument *)object;
 - (instancetype)initWithLazyPDFConfiguration:(LazyPDFConfiguration *)config;
 

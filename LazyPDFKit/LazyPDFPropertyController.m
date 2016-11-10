@@ -121,6 +121,7 @@
 {
     self.lineColor = controller.resultColor;
     [self setImageView:lineColor];
+    self.lPDF.updateProperties;
 }
 
 //------------------------------------------------------------------------------
@@ -143,10 +144,12 @@
 - (void)sliderThickAction:(UISlider *)sender
 {
     lineWidth = [NSNumber numberWithFloat:sender.value];
+    self.lPDF.updateProperties;
 }
 - (void)sliderAlphaAction:(UISlider *)sender
 {
     lineAlpha = [NSNumber numberWithFloat:sender.value];
+    self.lPDF.updateProperties;
 }
 
 -(void)setImageView:(UIColor *)color{

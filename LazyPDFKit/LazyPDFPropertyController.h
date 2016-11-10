@@ -26,6 +26,7 @@
 
 #import <UIKit/UIKit.h>
 #import "LazyPDFPopoverController.h"
+#import "LazyPDFViewController.h"
 
 @interface LazyPDFPropertyController : UITableViewController
 
@@ -34,6 +35,7 @@
 @property (nonatomic , strong) NSNumber *lineAlpha;
 @property (nonatomic , strong) UIButton *colorButton;
 @property (strong, nonatomic) LazyPDFPopoverController *popover;
+@property (strong, nonatomic) LazyPDFViewController *lPDF;
 
 - (void)sliderThickAction:(UISlider *)sender;
 - (void)sliderAlphaAction:(UISlider *)sender;
