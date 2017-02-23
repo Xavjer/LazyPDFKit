@@ -43,6 +43,8 @@
 #import "LazyPDFDataManager.h"
 #import "LazyPDFConfiguration.h"
 
+#import "PDFKitten.h"
+
 
 @interface LazyPDFViewController () <UIScrollViewDelegate, UIGestureRecognizerDelegate, MFMailComposeViewControllerDelegate, UIDocumentInteractionControllerDelegate,
 LazyPDFMainToolbarDelegate, LazyPDFMainPagebarDelegate, LazyPDFContentViewDelegate, ThumbsViewControllerDelegate,LazyPDFDrawingViewDelegate,LazyPDFPopoverControllerDelegate,LazyPDFDrawToolbarDelegate>
@@ -256,6 +258,18 @@ LazyPDFMainToolbarDelegate, LazyPDFMainPagebarDelegate, LazyPDFContentViewDelega
     }
 }
 
+- (NSArray *)selections
+{
+    @synchronized (self)
+    {
+        if (!selections)
+        {
+            self.selections = [self.scanner scanSelectionsMatchingString:self.keyword];
+        }
+        return selections;
+    }
+}
+
 - (void)showDocumentPage:(NSInteger)page
 {
     if (page != currentPage) // Only if on different page
@@ -265,6 +279,36 @@ LazyPDFMainToolbarDelegate, LazyPDFMainPagebarDelegate, LazyPDFContentViewDelega
         [self saveAnnotation];
         
         currentPage = page; document.pageNumber = [NSNumber numberWithInteger:page];
+        
+        
+        NSURL *url = [document fileURL];
+        CGPDFDocumentRef documentLocal = CGPDFDocumentCreateWithURL ((__bridge_retained CFURLRef) url);
+        
+        CGPDFPageRef pdfPage = CGPDFDocumentGetPage(documentLocal, page);
+        //Scanner *scanner = [PDFKP scannerWithPage:page];
+        //PDFKPageSelectionsScanner
+        self.scanner = [[PDFKPageSelectionsScanner alloc] initWithPage:pdfPage];
+        
+        PDFKPageBoundingBoxScanner *boundingBoxScanner = [[PDFKPageBoundingBoxScanner alloc] initWithPage:pdfPage];
+        CGRect _boundingBox = [boundingBoxScanner scanBoundingBox];
+        
+        PDFKPageTextScanner *textScanner = [[PDFKPageTextScanner alloc] initWithPage:pdfPage];
+        NSLog(@"--- page text --- \n%@\n--- page text ---", [textScanner scanText]);
+        
+        //PDFKPageScanner *scanner = [[PDFKPageScanner alloc] initWithPage:page];
+        
+        //NSArray *selections = [scanner scanSelectionsMatchingString:@"Kurt"];
+        self.keyword = @"Kurt";
+        
+        
+        for (PDFKSelection *selection in selections)
+        {
+            CGContextRef context = UIGraphicsGetCurrentContext();
+            CGContextSetRGBFillColor(context, 1.0, 0.0, 0.0, 1.0);
+            CGContextSetRGBStrokeColor(context, 1.0, 0.0, 0.0, 1.0);
+            CGContextFillRect(context, [selection frame]);
+        }
+        
         
         CGPoint contentOffset = CGPointMake((theScrollView.bounds.size.width * (page - 1)), 0.0f);
         

@@ -29,6 +29,7 @@
 
 
 @class LazyPDFViewController;
+@class PDFKPageSelectionsScanner;
 
 @protocol LazyPDFViewControllerDelegate <NSObject>
 
@@ -46,12 +47,17 @@
 
 @interface LazyPDFViewController : UIViewController
 {
-    
+    NSArray *selections;
+    NSString *keyword;
 }
 @property (nonatomic, strong) LazyPDFDrawingView *drawingView;
 @property (nonatomic , strong) UIColor *lineColor;
 @property (nonatomic , strong) NSNumber *lineWidth;
 @property (nonatomic , strong) NSNumber *lineAlpha;
+
+@property (nonatomic, copy) NSArray *selections;
+@property (nonatomic, strong) PDFKPageSelectionsScanner *scanner;
+@property (nonatomic, copy) NSString *keyword;
 
 @property (nonatomic, weak, readwrite) id <LazyPDFViewControllerDelegate> delegate;
 

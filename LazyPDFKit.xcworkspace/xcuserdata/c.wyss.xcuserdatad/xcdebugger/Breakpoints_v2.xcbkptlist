@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LazyPDFKit/LazyPDFViewController.m"
-            timestampString = "500313232.916516"
+            timestampString = "500492315.772379"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "696"
-            endingLineNumber = "696"
+            startingLineNumber = "740"
+            endingLineNumber = "740"
             landmarkName = "-handleSingleTap:"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,60 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LazyPDFKit/LazyPDFViewController.m"
-            timestampString = "500313433.628341"
+            timestampString = "500492315.772379"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "836"
-            endingLineNumber = "836"
+            startingLineNumber = "880"
+            endingLineNumber = "880"
             landmarkName = "-contentView:touchesBegan:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LazyPDFKit/LazyPDFViewController.m"
-            timestampString = "500316948.136652"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1227"
-            endingLineNumber = "1227"
-            landmarkName = "-tappedInToolbar:drawButton:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LazyPDFKit/LazyPDFViewController.m"
-            timestampString = "500316948.136652"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1210"
-            endingLineNumber = "1210"
-            landmarkName = "-tappedInToolbar:drawButton:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LazyPDFKit/LazyPDFViewController.m"
-            timestampString = "500468926.913872"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1358"
-            endingLineNumber = "1358"
-            landmarkName = "-popoverControllerDidDismissPopover:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -90,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LazyPDFKit/LazyPDFViewController.m"
-            timestampString = "500465841.761695"
+            timestampString = "500492315.772379"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1128"
-            endingLineNumber = "1128"
+            startingLineNumber = "1172"
+            endingLineNumber = "1172"
             landmarkName = "-tappedInToolbar:drawButton:"
             landmarkType = "7">
          </BreakpointContent>
@@ -121,13 +73,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LazyPDFKit/LazyPDFViewController.m"
-            timestampString = "500468996.339198"
+            filePath = "LazyPDFKit/Core/PDFKCMap.m"
+            timestampString = "500489943.477129"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1335"
-            endingLineNumber = "1335"
-            landmarkName = "-updateProperties"
+            startingLineNumber = "196"
+            endingLineNumber = "196"
+            landmarkName = "-parse:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -138,45 +90,29 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LazyPDFKit/LazyPDFViewController.m"
-            timestampString = "500468997.047917"
+            timestampString = "500492315.772379"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1337"
-            endingLineNumber = "1337"
-            landmarkName = "-updateProperties"
+            startingLineNumber = "306"
+            endingLineNumber = "306"
+            landmarkName = "-showDocumentPage:"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[LazyPDFViewController updateProperties]"
-                  moduleName = "LazyPDFKit"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/c.wyss/Documents/Projects/LazyPDFKit/LazyPDFKit/LazyPDFViewController.m"
-                  timestampString = "500469323.859315"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "1337"
-                  endingLineNumber = "1337"
-                  offsetFromSymbolStart = "100">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[LazyPDFViewController updateProperties]"
-                  moduleName = "LazyPDFKit"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/c.wyss/Documents/Projects/LazyPDFKit/LazyPDFKit/LazyPDFViewController.m"
-                  timestampString = "500469324.457532"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "1337"
-                  endingLineNumber = "1337"
-                  offsetFromSymbolStart = "104">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LazyPDFKit/LazyPDFViewController.m"
+            timestampString = "500492309.912979"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "304"
+            endingLineNumber = "304"
+            landmarkName = "-showDocumentPage:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

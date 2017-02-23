@@ -236,6 +236,72 @@
 		90483A4D1AB6A9B900E62E60 /* undo-but@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9048397B1AB6A9B900E62E60 /* undo-but@2x.png */; };
 		90483A4E1AB6A9B900E62E60 /* undo-but@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9048397B1AB6A9B900E62E60 /* undo-but@2x.png */; };
 		90D421471AC3952200D3CE2A /* VERSION in Resources */ = {isa = PBXBuildFile; fileRef = 90D421461AC3952200D3CE2A /* VERSION */; };
+		B0331F341DD4BAD500A05428 /* PDFKCIDFont.h in Headers */ = {isa = PBXBuildFile; fileRef = B0331F071DD4BAD500A05428 /* PDFKCIDFont.h */; };
+		B0331F351DD4BAD500A05428 /* PDFKCIDFont.m in Sources */ = {isa = PBXBuildFile; fileRef = B0331F081DD4BAD500A05428 /* PDFKCIDFont.m */; };
+		B0331F361DD4BAD500A05428 /* PDFKCIDFont.m in Sources */ = {isa = PBXBuildFile; fileRef = B0331F081DD4BAD500A05428 /* PDFKCIDFont.m */; };
+		B0331F371DD4BAD500A05428 /* PDFKCIDType0Font.h in Headers */ = {isa = PBXBuildFile; fileRef = B0331F091DD4BAD500A05428 /* PDFKCIDType0Font.h */; };
+		B0331F381DD4BAD500A05428 /* PDFKCIDType0Font.m in Sources */ = {isa = PBXBuildFile; fileRef = B0331F0A1DD4BAD500A05428 /* PDFKCIDType0Font.m */; };
+		B0331F391DD4BAD500A05428 /* PDFKCIDType0Font.m in Sources */ = {isa = PBXBuildFile; fileRef = B0331F0A1DD4BAD500A05428 /* PDFKCIDType0Font.m */; };
+		B0331F3A1DD4BAD500A05428 /* PDFKCIDType2Font.h in Headers */ = {isa = PBXBuildFile; fileRef = B0331F0B1DD4BAD500A05428 /* PDFKCIDType2Font.h */; };
+		B0331F3B1DD4BAD500A05428 /* PDFKCIDType2Font.m in Sources */ = {isa = PBXBuildFile; fileRef = B0331F0C1DD4BAD500A05428 /* PDFKCIDType2Font.m */; };
+		B0331F3C1DD4BAD500A05428 /* PDFKCIDType2Font.m in Sources */ = {isa = PBXBuildFile; fileRef = B0331F0C1DD4BAD500A05428 /* PDFKCIDType2Font.m */; };
+		B0331F3D1DD4BAD500A05428 /* PDFKCMap.h in Headers */ = {isa = PBXBuildFile; fileRef = B0331F0D1DD4BAD500A05428 /* PDFKCMap.h */; };
+		B0331F3E1DD4BAD500A05428 /* PDFKCMap.m in Sources */ = {isa = PBXBuildFile; fileRef = B0331F0E1DD4BAD500A05428 /* PDFKCMap.m */; };
+		B0331F3F1DD4BAD500A05428 /* PDFKCMap.m in Sources */ = {isa = PBXBuildFile; fileRef = B0331F0E1DD4BAD500A05428 /* PDFKCMap.m */; };
+		B0331F401DD4BAD500A05428 /* PDFKCompositeFont.h in Headers */ = {isa = PBXBuildFile; fileRef = B0331F0F1DD4BAD500A05428 /* PDFKCompositeFont.h */; };
+		B0331F411DD4BAD500A05428 /* PDFKCompositeFont.m in Sources */ = {isa = PBXBuildFile; fileRef = B0331F101DD4BAD500A05428 /* PDFKCompositeFont.m */; };
+		B0331F421DD4BAD500A05428 /* PDFKCompositeFont.m in Sources */ = {isa = PBXBuildFile; fileRef = B0331F101DD4BAD500A05428 /* PDFKCompositeFont.m */; };
+		B0331F431DD4BAD500A05428 /* PDFKEncodingDifferences.h in Headers */ = {isa = PBXBuildFile; fileRef = B0331F111DD4BAD500A05428 /* PDFKEncodingDifferences.h */; };
+		B0331F441DD4BAD500A05428 /* PDFKEncodingDifferences.m in Sources */ = {isa = PBXBuildFile; fileRef = B0331F121DD4BAD500A05428 /* PDFKEncodingDifferences.m */; };
+		B0331F451DD4BAD500A05428 /* PDFKEncodingDifferences.m in Sources */ = {isa = PBXBuildFile; fileRef = B0331F121DD4BAD500A05428 /* PDFKEncodingDifferences.m */; };
+		B0331F461DD4BAD500A05428 /* PDFKFont.h in Headers */ = {isa = PBXBuildFile; fileRef = B0331F131DD4BAD500A05428 /* PDFKFont.h */; };
+		B0331F471DD4BAD500A05428 /* PDFKFont.m in Sources */ = {isa = PBXBuildFile; fileRef = B0331F141DD4BAD500A05428 /* PDFKFont.m */; };
+		B0331F481DD4BAD500A05428 /* PDFKFont.m in Sources */ = {isa = PBXBuildFile; fileRef = B0331F141DD4BAD500A05428 /* PDFKFont.m */; };
+		B0331F491DD4BAD500A05428 /* PDFKFontCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = B0331F151DD4BAD500A05428 /* PDFKFontCollection.h */; };
+		B0331F4A1DD4BAD500A05428 /* PDFKFontCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = B0331F161DD4BAD500A05428 /* PDFKFontCollection.m */; };
+		B0331F4B1DD4BAD500A05428 /* PDFKFontCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = B0331F161DD4BAD500A05428 /* PDFKFontCollection.m */; };
+		B0331F4C1DD4BAD500A05428 /* PDFKFontDescriptor.h in Headers */ = {isa = PBXBuildFile; fileRef = B0331F171DD4BAD500A05428 /* PDFKFontDescriptor.h */; };
+		B0331F4D1DD4BAD500A05428 /* PDFKFontDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = B0331F181DD4BAD500A05428 /* PDFKFontDescriptor.m */; };
+		B0331F4E1DD4BAD500A05428 /* PDFKFontDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = B0331F181DD4BAD500A05428 /* PDFKFontDescriptor.m */; };
+		B0331F4F1DD4BAD500A05428 /* PDFKFontFile.h in Headers */ = {isa = PBXBuildFile; fileRef = B0331F191DD4BAD500A05428 /* PDFKFontFile.h */; };
+		B0331F501DD4BAD500A05428 /* PDFKFontFile.m in Sources */ = {isa = PBXBuildFile; fileRef = B0331F1A1DD4BAD500A05428 /* PDFKFontFile.m */; };
+		B0331F511DD4BAD500A05428 /* PDFKFontFile.m in Sources */ = {isa = PBXBuildFile; fileRef = B0331F1A1DD4BAD500A05428 /* PDFKFontFile.m */; };
+		B0331F521DD4BAD500A05428 /* PDFKMMType1Font.h in Headers */ = {isa = PBXBuildFile; fileRef = B0331F1B1DD4BAD500A05428 /* PDFKMMType1Font.h */; };
+		B0331F531DD4BAD500A05428 /* PDFKMMType1Font.m in Sources */ = {isa = PBXBuildFile; fileRef = B0331F1C1DD4BAD500A05428 /* PDFKMMType1Font.m */; };
+		B0331F541DD4BAD500A05428 /* PDFKMMType1Font.m in Sources */ = {isa = PBXBuildFile; fileRef = B0331F1C1DD4BAD500A05428 /* PDFKMMType1Font.m */; };
+		B0331F551DD4BAD500A05428 /* PDFKRenderingState.h in Headers */ = {isa = PBXBuildFile; fileRef = B0331F1D1DD4BAD500A05428 /* PDFKRenderingState.h */; };
+		B0331F561DD4BAD500A05428 /* PDFKRenderingState.m in Sources */ = {isa = PBXBuildFile; fileRef = B0331F1E1DD4BAD500A05428 /* PDFKRenderingState.m */; };
+		B0331F571DD4BAD500A05428 /* PDFKRenderingState.m in Sources */ = {isa = PBXBuildFile; fileRef = B0331F1E1DD4BAD500A05428 /* PDFKRenderingState.m */; };
+		B0331F581DD4BAD500A05428 /* PDFKRenderingStateStack.h in Headers */ = {isa = PBXBuildFile; fileRef = B0331F1F1DD4BAD500A05428 /* PDFKRenderingStateStack.h */; };
+		B0331F591DD4BAD500A05428 /* PDFKRenderingStateStack.m in Sources */ = {isa = PBXBuildFile; fileRef = B0331F201DD4BAD500A05428 /* PDFKRenderingStateStack.m */; };
+		B0331F5A1DD4BAD500A05428 /* PDFKRenderingStateStack.m in Sources */ = {isa = PBXBuildFile; fileRef = B0331F201DD4BAD500A05428 /* PDFKRenderingStateStack.m */; };
+		B0331F5B1DD4BAD500A05428 /* PDFKSimpleFont.h in Headers */ = {isa = PBXBuildFile; fileRef = B0331F211DD4BAD500A05428 /* PDFKSimpleFont.h */; };
+		B0331F5C1DD4BAD500A05428 /* PDFKSimpleFont.m in Sources */ = {isa = PBXBuildFile; fileRef = B0331F221DD4BAD500A05428 /* PDFKSimpleFont.m */; };
+		B0331F5D1DD4BAD500A05428 /* PDFKSimpleFont.m in Sources */ = {isa = PBXBuildFile; fileRef = B0331F221DD4BAD500A05428 /* PDFKSimpleFont.m */; };
+		B0331F5E1DD4BAD500A05428 /* PDFKStringDetector.h in Headers */ = {isa = PBXBuildFile; fileRef = B0331F231DD4BAD500A05428 /* PDFKStringDetector.h */; };
+		B0331F5F1DD4BAD500A05428 /* PDFKStringDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = B0331F241DD4BAD500A05428 /* PDFKStringDetector.m */; };
+		B0331F601DD4BAD500A05428 /* PDFKStringDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = B0331F241DD4BAD500A05428 /* PDFKStringDetector.m */; };
+		B0331F611DD4BAD500A05428 /* PDFKTrueTypeFont.h in Headers */ = {isa = PBXBuildFile; fileRef = B0331F251DD4BAD500A05428 /* PDFKTrueTypeFont.h */; };
+		B0331F621DD4BAD500A05428 /* PDFKTrueTypeFont.m in Sources */ = {isa = PBXBuildFile; fileRef = B0331F261DD4BAD500A05428 /* PDFKTrueTypeFont.m */; };
+		B0331F631DD4BAD500A05428 /* PDFKTrueTypeFont.m in Sources */ = {isa = PBXBuildFile; fileRef = B0331F261DD4BAD500A05428 /* PDFKTrueTypeFont.m */; };
+		B0331F641DD4BAD500A05428 /* PDFKType0Font.h in Headers */ = {isa = PBXBuildFile; fileRef = B0331F271DD4BAD500A05428 /* PDFKType0Font.h */; };
+		B0331F651DD4BAD500A05428 /* PDFKType0Font.m in Sources */ = {isa = PBXBuildFile; fileRef = B0331F281DD4BAD500A05428 /* PDFKType0Font.m */; };
+		B0331F661DD4BAD500A05428 /* PDFKType0Font.m in Sources */ = {isa = PBXBuildFile; fileRef = B0331F281DD4BAD500A05428 /* PDFKType0Font.m */; };
+		B0331F671DD4BAD500A05428 /* PDFKType1Font.h in Headers */ = {isa = PBXBuildFile; fileRef = B0331F291DD4BAD500A05428 /* PDFKType1Font.h */; };
+		B0331F681DD4BAD500A05428 /* PDFKType1Font.m in Sources */ = {isa = PBXBuildFile; fileRef = B0331F2A1DD4BAD500A05428 /* PDFKType1Font.m */; };
+		B0331F691DD4BAD500A05428 /* PDFKType1Font.m in Sources */ = {isa = PBXBuildFile; fileRef = B0331F2A1DD4BAD500A05428 /* PDFKType1Font.m */; };
+		B0331F6A1DD4BAD500A05428 /* PDFKType3Font.h in Headers */ = {isa = PBXBuildFile; fileRef = B0331F2B1DD4BAD500A05428 /* PDFKType3Font.h */; };
+		B0331F6B1DD4BAD500A05428 /* PDFKType3Font.m in Sources */ = {isa = PBXBuildFile; fileRef = B0331F2C1DD4BAD500A05428 /* PDFKType3Font.m */; };
+		B0331F6C1DD4BAD500A05428 /* PDFKType3Font.m in Sources */ = {isa = PBXBuildFile; fileRef = B0331F2C1DD4BAD500A05428 /* PDFKType3Font.m */; };
+		B0331F6D1DD4BAD500A05428 /* PDFStringDetectorDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = B0331F2D1DD4BAD500A05428 /* PDFStringDetectorDelegate.h */; };
+		B0331F6E1DD4BAD500A05428 /* PDFKitten.h in Headers */ = {isa = PBXBuildFile; fileRef = B0331F2E1DD4BAD500A05428 /* PDFKitten.h */; };
+		B0331F6F1DD4BAD500A05428 /* PDFKittenLib-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = B0331F2F1DD4BAD500A05428 /* PDFKittenLib-Prefix.pch */; };
+		B0331F701DD4BAD500A05428 /* PDFKPageScanner.h in Headers */ = {isa = PBXBuildFile; fileRef = B0331F301DD4BAD500A05428 /* PDFKPageScanner.h */; };
+		B0331F711DD4BAD500A05428 /* PDFKPageScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = B0331F311DD4BAD500A05428 /* PDFKPageScanner.m */; };
+		B0331F721DD4BAD500A05428 /* PDFKPageScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = B0331F311DD4BAD500A05428 /* PDFKPageScanner.m */; };
+		B0331F731DD4BAD500A05428 /* PDFKSelection.h in Headers */ = {isa = PBXBuildFile; fileRef = B0331F321DD4BAD500A05428 /* PDFKSelection.h */; };
+		B0331F741DD4BAD500A05428 /* PDFKSelection.m in Sources */ = {isa = PBXBuildFile; fileRef = B0331F331DD4BAD500A05428 /* PDFKSelection.m */; };
+		B0331F751DD4BAD500A05428 /* PDFKSelection.m in Sources */ = {isa = PBXBuildFile; fileRef = B0331F331DD4BAD500A05428 /* PDFKSelection.m */; };
 		B05387471DD1E66E008ADBBF /* LazyPDFConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = B05387461DD1E66E008ADBBF /* LazyPDFConfiguration.m */; };
 		B05387481DD1E66E008ADBBF /* LazyPDFConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = B05387461DD1E66E008ADBBF /* LazyPDFConfiguration.m */; };
 		B053874A1DD1E67A008ADBBF /* LazyPDFConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = B05387491DD1E679008ADBBF /* LazyPDFConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -384,6 +450,51 @@
 		9048397A1AB6A9B900E62E60 /* undo-but.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "undo-but.png"; sourceTree = "<group>"; };
 		9048397B1AB6A9B900E62E60 /* undo-but@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "undo-but@2x.png"; sourceTree = "<group>"; };
 		90D421461AC3952200D3CE2A /* VERSION */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VERSION; sourceTree = "<group>"; };
+		B0331F071DD4BAD500A05428 /* PDFKCIDFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFKCIDFont.h; sourceTree = "<group>"; };
+		B0331F081DD4BAD500A05428 /* PDFKCIDFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFKCIDFont.m; sourceTree = "<group>"; };
+		B0331F091DD4BAD500A05428 /* PDFKCIDType0Font.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFKCIDType0Font.h; sourceTree = "<group>"; };
+		B0331F0A1DD4BAD500A05428 /* PDFKCIDType0Font.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFKCIDType0Font.m; sourceTree = "<group>"; };
+		B0331F0B1DD4BAD500A05428 /* PDFKCIDType2Font.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFKCIDType2Font.h; sourceTree = "<group>"; };
+		B0331F0C1DD4BAD500A05428 /* PDFKCIDType2Font.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFKCIDType2Font.m; sourceTree = "<group>"; };
+		B0331F0D1DD4BAD500A05428 /* PDFKCMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFKCMap.h; sourceTree = "<group>"; };
+		B0331F0E1DD4BAD500A05428 /* PDFKCMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFKCMap.m; sourceTree = "<group>"; };
+		B0331F0F1DD4BAD500A05428 /* PDFKCompositeFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFKCompositeFont.h; sourceTree = "<group>"; };
+		B0331F101DD4BAD500A05428 /* PDFKCompositeFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFKCompositeFont.m; sourceTree = "<group>"; };
+		B0331F111DD4BAD500A05428 /* PDFKEncodingDifferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFKEncodingDifferences.h; sourceTree = "<group>"; };
+		B0331F121DD4BAD500A05428 /* PDFKEncodingDifferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFKEncodingDifferences.m; sourceTree = "<group>"; };
+		B0331F131DD4BAD500A05428 /* PDFKFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFKFont.h; sourceTree = "<group>"; };
+		B0331F141DD4BAD500A05428 /* PDFKFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFKFont.m; sourceTree = "<group>"; };
+		B0331F151DD4BAD500A05428 /* PDFKFontCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFKFontCollection.h; sourceTree = "<group>"; };
+		B0331F161DD4BAD500A05428 /* PDFKFontCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFKFontCollection.m; sourceTree = "<group>"; };
+		B0331F171DD4BAD500A05428 /* PDFKFontDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFKFontDescriptor.h; sourceTree = "<group>"; };
+		B0331F181DD4BAD500A05428 /* PDFKFontDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFKFontDescriptor.m; sourceTree = "<group>"; };
+		B0331F191DD4BAD500A05428 /* PDFKFontFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFKFontFile.h; sourceTree = "<group>"; };
+		B0331F1A1DD4BAD500A05428 /* PDFKFontFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFKFontFile.m; sourceTree = "<group>"; };
+		B0331F1B1DD4BAD500A05428 /* PDFKMMType1Font.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFKMMType1Font.h; sourceTree = "<group>"; };
+		B0331F1C1DD4BAD500A05428 /* PDFKMMType1Font.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFKMMType1Font.m; sourceTree = "<group>"; };
+		B0331F1D1DD4BAD500A05428 /* PDFKRenderingState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFKRenderingState.h; sourceTree = "<group>"; };
+		B0331F1E1DD4BAD500A05428 /* PDFKRenderingState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFKRenderingState.m; sourceTree = "<group>"; };
+		B0331F1F1DD4BAD500A05428 /* PDFKRenderingStateStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFKRenderingStateStack.h; sourceTree = "<group>"; };
+		B0331F201DD4BAD500A05428 /* PDFKRenderingStateStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFKRenderingStateStack.m; sourceTree = "<group>"; };
+		B0331F211DD4BAD500A05428 /* PDFKSimpleFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFKSimpleFont.h; sourceTree = "<group>"; };
+		B0331F221DD4BAD500A05428 /* PDFKSimpleFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFKSimpleFont.m; sourceTree = "<group>"; };
+		B0331F231DD4BAD500A05428 /* PDFKStringDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFKStringDetector.h; sourceTree = "<group>"; };
+		B0331F241DD4BAD500A05428 /* PDFKStringDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFKStringDetector.m; sourceTree = "<group>"; };
+		B0331F251DD4BAD500A05428 /* PDFKTrueTypeFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFKTrueTypeFont.h; sourceTree = "<group>"; };
+		B0331F261DD4BAD500A05428 /* PDFKTrueTypeFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFKTrueTypeFont.m; sourceTree = "<group>"; };
+		B0331F271DD4BAD500A05428 /* PDFKType0Font.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFKType0Font.h; sourceTree = "<group>"; };
+		B0331F281DD4BAD500A05428 /* PDFKType0Font.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFKType0Font.m; sourceTree = "<group>"; };
+		B0331F291DD4BAD500A05428 /* PDFKType1Font.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFKType1Font.h; sourceTree = "<group>"; };
+		B0331F2A1DD4BAD500A05428 /* PDFKType1Font.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFKType1Font.m; sourceTree = "<group>"; };
+		B0331F2B1DD4BAD500A05428 /* PDFKType3Font.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFKType3Font.h; sourceTree = "<group>"; };
+		B0331F2C1DD4BAD500A05428 /* PDFKType3Font.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFKType3Font.m; sourceTree = "<group>"; };
+		B0331F2D1DD4BAD500A05428 /* PDFStringDetectorDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFStringDetectorDelegate.h; sourceTree = "<group>"; };
+		B0331F2E1DD4BAD500A05428 /* PDFKitten.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFKitten.h; sourceTree = "<group>"; };
+		B0331F2F1DD4BAD500A05428 /* PDFKittenLib-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PDFKittenLib-Prefix.pch"; sourceTree = "<group>"; };
+		B0331F301DD4BAD500A05428 /* PDFKPageScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFKPageScanner.h; sourceTree = "<group>"; };
+		B0331F311DD4BAD500A05428 /* PDFKPageScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFKPageScanner.m; sourceTree = "<group>"; };
+		B0331F321DD4BAD500A05428 /* PDFKSelection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFKSelection.h; sourceTree = "<group>"; };
+		B0331F331DD4BAD500A05428 /* PDFKSelection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFKSelection.m; sourceTree = "<group>"; };
 		B05387461DD1E66E008ADBBF /* LazyPDFConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LazyPDFConfiguration.m; sourceTree = "<group>"; };
 		B05387491DD1E679008ADBBF /* LazyPDFConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LazyPDFConfiguration.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -428,6 +539,7 @@
 		9048384C1AB6A8C600E62E60 /* LazyPDFKit */ = {
 			isa = PBXGroup;
 			children = (
+				B0331F051DD4BAC900A05428 /* PDFKittenLib */,
 				90483A4F1AB6A9E600E62E60 /* Graphics */,
 				90483A501AB6AA1000E62E60 /* CoreData */,
 				9048384F1AB6A8C600E62E60 /* LazyPDFKit.h */,
@@ -603,6 +715,66 @@
 			name = CoreData;
 			sourceTree = "<group>";
 		};
+		B0331F051DD4BAC900A05428 /* PDFKittenLib */ = {
+			isa = PBXGroup;
+			children = (
+				B0331F061DD4BAD500A05428 /* Core */,
+				B0331F2E1DD4BAD500A05428 /* PDFKitten.h */,
+				B0331F2F1DD4BAD500A05428 /* PDFKittenLib-Prefix.pch */,
+				B0331F301DD4BAD500A05428 /* PDFKPageScanner.h */,
+				B0331F311DD4BAD500A05428 /* PDFKPageScanner.m */,
+				B0331F321DD4BAD500A05428 /* PDFKSelection.h */,
+				B0331F331DD4BAD500A05428 /* PDFKSelection.m */,
+			);
+			name = PDFKittenLib;
+			sourceTree = "<group>";
+		};
+		B0331F061DD4BAD500A05428 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				B0331F071DD4BAD500A05428 /* PDFKCIDFont.h */,
+				B0331F081DD4BAD500A05428 /* PDFKCIDFont.m */,
+				B0331F091DD4BAD500A05428 /* PDFKCIDType0Font.h */,
+				B0331F0A1DD4BAD500A05428 /* PDFKCIDType0Font.m */,
+				B0331F0B1DD4BAD500A05428 /* PDFKCIDType2Font.h */,
+				B0331F0C1DD4BAD500A05428 /* PDFKCIDType2Font.m */,
+				B0331F0D1DD4BAD500A05428 /* PDFKCMap.h */,
+				B0331F0E1DD4BAD500A05428 /* PDFKCMap.m */,
+				B0331F0F1DD4BAD500A05428 /* PDFKCompositeFont.h */,
+				B0331F101DD4BAD500A05428 /* PDFKCompositeFont.m */,
+				B0331F111DD4BAD500A05428 /* PDFKEncodingDifferences.h */,
+				B0331F121DD4BAD500A05428 /* PDFKEncodingDifferences.m */,
+				B0331F131DD4BAD500A05428 /* PDFKFont.h */,
+				B0331F141DD4BAD500A05428 /* PDFKFont.m */,
+				B0331F151DD4BAD500A05428 /* PDFKFontCollection.h */,
+				B0331F161DD4BAD500A05428 /* PDFKFontCollection.m */,
+				B0331F171DD4BAD500A05428 /* PDFKFontDescriptor.h */,
+				B0331F181DD4BAD500A05428 /* PDFKFontDescriptor.m */,
+				B0331F191DD4BAD500A05428 /* PDFKFontFile.h */,
+				B0331F1A1DD4BAD500A05428 /* PDFKFontFile.m */,
+				B0331F1B1DD4BAD500A05428 /* PDFKMMType1Font.h */,
+				B0331F1C1DD4BAD500A05428 /* PDFKMMType1Font.m */,
+				B0331F1D1DD4BAD500A05428 /* PDFKRenderingState.h */,
+				B0331F1E1DD4BAD500A05428 /* PDFKRenderingState.m */,
+				B0331F1F1DD4BAD500A05428 /* PDFKRenderingStateStack.h */,
+				B0331F201DD4BAD500A05428 /* PDFKRenderingStateStack.m */,
+				B0331F211DD4BAD500A05428 /* PDFKSimpleFont.h */,
+				B0331F221DD4BAD500A05428 /* PDFKSimpleFont.m */,
+				B0331F231DD4BAD500A05428 /* PDFKStringDetector.h */,
+				B0331F241DD4BAD500A05428 /* PDFKStringDetector.m */,
+				B0331F251DD4BAD500A05428 /* PDFKTrueTypeFont.h */,
+				B0331F261DD4BAD500A05428 /* PDFKTrueTypeFont.m */,
+				B0331F271DD4BAD500A05428 /* PDFKType0Font.h */,
+				B0331F281DD4BAD500A05428 /* PDFKType0Font.m */,
+				B0331F291DD4BAD500A05428 /* PDFKType1Font.h */,
+				B0331F2A1DD4BAD500A05428 /* PDFKType1Font.m */,
+				B0331F2B1DD4BAD500A05428 /* PDFKType3Font.h */,
+				B0331F2C1DD4BAD500A05428 /* PDFKType3Font.m */,
+				B0331F2D1DD4BAD500A05428 /* PDFStringDetectorDelegate.h */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -610,47 +782,71 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0331F521DD4BAD500A05428 /* PDFKMMType1Font.h in Headers */,
 				B053874A1DD1E67A008ADBBF /* LazyPDFConfiguration.h in Headers */,
+				B0331F491DD4BAD500A05428 /* PDFKFontCollection.h in Headers */,
+				B0331F731DD4BAD500A05428 /* PDFKSelection.h in Headers */,
 				904839C31AB6A9B900E62E60 /* LazyPDFColorIndicatorView.h in Headers */,
 				90483A0D1AB6A9B900E62E60 /* LazyPDFThumbQueue.h in Headers */,
 				90483A481AB6A9B900E62E60 /* UIXToolbarView.h in Headers */,
 				904839C61AB6A9B900E62E60 /* LazyPDFColorPicker.h in Headers */,
 				9048399D1AB6A9B900E62E60 /* File.h in Headers */,
+				B0331F401DD4BAD500A05428 /* PDFKCompositeFont.h in Headers */,
 				90483A101AB6A9B900E62E60 /* LazyPDFThumbRender.h in Headers */,
 				904839DB1AB6A9B900E62E60 /* LazyPDFContentView.h in Headers */,
 				904839C01AB6A9B900E62E60 /* LazyPDFColorBarPicker.h in Headers */,
 				904839801AB6A9B900E62E60 /* CGPDFDocument.h in Headers */,
+				B0331F671DD4BAD500A05428 /* PDFKType1Font.h in Headers */,
 				904838501AB6A8C600E62E60 /* LazyPDFKit.h in Headers */,
 				9048397F1AB6A9B900E62E60 /* ARCMacros.h in Headers */,
 				90483A071AB6A9B900E62E60 /* LazyPDFThumbCache.h in Headers */,
 				904839D21AB6A9B900E62E60 /* LazyPDFConstants.h in Headers */,
 				904839DE1AB6A9B900E62E60 /* LazyPDFDataManager.h in Headers */,
+				B0331F701DD4BAD500A05428 /* PDFKPageScanner.h in Headers */,
 				904839CA1AB6A9B900E62E60 /* LazyPDFColorPickerNavigationController.h in Headers */,
 				904839EA1AB6A9B900E62E60 /* LazyPDFDrawingView.h in Headers */,
 				90483A131AB6A9B900E62E60 /* LazyPDFThumbRequest.h in Headers */,
+				B0331F581DD4BAD500A05428 /* PDFKRenderingStateStack.h in Headers */,
 				904839F61AB6A9B900E62E60 /* LazyPDFMainToolbar.h in Headers */,
 				904839E71AB6A9B900E62E60 /* LazyPDFDrawingTools.h in Headers */,
+				B0331F611DD4BAD500A05428 /* PDFKTrueTypeFont.h in Headers */,
+				B0331F6A1DD4BAD500A05428 /* PDFKType3Font.h in Headers */,
+				B0331F5E1DD4BAD500A05428 /* PDFKStringDetector.h in Headers */,
 				90483A0A1AB6A9B900E62E60 /* LazyPDFThumbFetch.h in Headers */,
+				B0331F3D1DD4BAD500A05428 /* PDFKCMap.h in Headers */,
 				904839FE1AB6A9B900E62E60 /* LazyPDFPopoverView.h in Headers */,
 				90483A1C1AB6A9B900E62E60 /* LazyPDFTouchView.h in Headers */,
 				904839F01AB6A9B900E62E60 /* LazyPDFHSBSupport.h in Headers */,
+				B0331F4C1DD4BAD500A05428 /* PDFKFontDescriptor.h in Headers */,
 				904839D51AB6A9B900E62E60 /* LazyPDFContentPage.h in Headers */,
 				904839ED1AB6A9B900E62E60 /* LazyPDFDrawToolbar.h in Headers */,
 				90483A1F1AB6A9B900E62E60 /* LazyPDFViewController.h in Headers */,
 				904839FB1AB6A9B900E62E60 /* LazyPDFPopoverController.h in Headers */,
+				B0331F3A1DD4BAD500A05428 /* PDFKCIDType2Font.h in Headers */,
 				904839CF1AB6A9B900E62E60 /* LazyPDFColorSquarePicker.h in Headers */,
 				90483A191AB6A9B900E62E60 /* LazyPDFThumbView.h in Headers */,
 				904839E41AB6A9B900E62E60 /* LazyPDFDocumentOutline.h in Headers */,
 				904839F31AB6A9B900E62E60 /* LazyPDFMainPagebar.h in Headers */,
 				904839E11AB6A9B900E62E60 /* LazyPDFDocument.h in Headers */,
 				90483A041AB6A9B900E62E60 /* LazyPDFSourceColorView.h in Headers */,
+				B0331F371DD4BAD500A05428 /* PDFKCIDType0Font.h in Headers */,
+				B0331F6E1DD4BAD500A05428 /* PDFKitten.h in Headers */,
+				B0331F431DD4BAD500A05428 /* PDFKEncodingDifferences.h in Headers */,
 				90483A421AB6A9B900E62E60 /* ThumbsMainToolbar.h in Headers */,
+				B0331F6F1DD4BAD500A05428 /* PDFKittenLib-Prefix.pch in Headers */,
+				B0331F6D1DD4BAD500A05428 /* PDFStringDetectorDelegate.h in Headers */,
 				9048397C1AB6A9B900E62E60 /* Annotation.h in Headers */,
+				B0331F641DD4BAD500A05428 /* PDFKType0Font.h in Headers */,
+				B0331F5B1DD4BAD500A05428 /* PDFKSimpleFont.h in Headers */,
 				90483A451AB6A9B900E62E60 /* ThumbsViewController.h in Headers */,
+				B0331F4F1DD4BAD500A05428 /* PDFKFontFile.h in Headers */,
 				90483A011AB6A9B900E62E60 /* LazyPDFPropertyController.h in Headers */,
+				B0331F551DD4BAD500A05428 /* PDFKRenderingState.h in Headers */,
 				904839C71AB6A9B900E62E60 /* LazyPDFColorPickerController.h in Headers */,
+				B0331F461DD4BAD500A05428 /* PDFKFont.h in Headers */,
 				904839D81AB6A9B900E62E60 /* LazyPDFContentTile.h in Headers */,
 				90483A161AB6A9B900E62E60 /* LazyPDFThumbsView.h in Headers */,
+				B0331F341DD4BAD500A05428 /* PDFKCIDFont.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -868,14 +1064,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				90483A021AB6A9B900E62E60 /* LazyPDFPropertyController.m in Sources */,
+				B0331F5F1DD4BAD500A05428 /* PDFKStringDetector.m in Sources */,
 				90483A431AB6A9B900E62E60 /* ThumbsMainToolbar.m in Sources */,
+				B0331F591DD4BAD500A05428 /* PDFKRenderingStateStack.m in Sources */,
+				B0331F621DD4BAD500A05428 /* PDFKTrueTypeFont.m in Sources */,
 				904839D91AB6A9B900E62E60 /* LazyPDFContentTile.m in Sources */,
 				904839F71AB6A9B900E62E60 /* LazyPDFMainToolbar.m in Sources */,
+				B0331F5C1DD4BAD500A05428 /* PDFKSimpleFont.m in Sources */,
 				90483A111AB6A9B900E62E60 /* LazyPDFThumbRender.m in Sources */,
+				B0331F681DD4BAD500A05428 /* PDFKType1Font.m in Sources */,
+				B0331F411DD4BAD500A05428 /* PDFKCompositeFont.m in Sources */,
+				B0331F3B1DD4BAD500A05428 /* PDFKCIDType2Font.m in Sources */,
+				B0331F441DD4BAD500A05428 /* PDFKEncodingDifferences.m in Sources */,
 				904839C81AB6A9B900E62E60 /* LazyPDFColorPickerController.m in Sources */,
 				904839D61AB6A9B900E62E60 /* LazyPDFContentPage.m in Sources */,
 				9048397D1AB6A9B900E62E60 /* Annotation.m in Sources */,
 				904839CB1AB6A9B900E62E60 /* LazyPDFColorPickerNavigationController.m in Sources */,
+				B0331F651DD4BAD500A05428 /* PDFKType0Font.m in Sources */,
 				904839811AB6A9B900E62E60 /* CGPDFDocument.m in Sources */,
 				904839C11AB6A9B900E62E60 /* LazyPDFColorBarPicker.m in Sources */,
 				90483A491AB6A9B900E62E60 /* UIXToolbarView.m in Sources */,
@@ -887,23 +1092,35 @@
 				904839FC1AB6A9B900E62E60 /* LazyPDFPopoverController.m in Sources */,
 				904839D01AB6A9B900E62E60 /* LazyPDFColorSquarePicker.m in Sources */,
 				90483A1D1AB6A9B900E62E60 /* LazyPDFTouchView.m in Sources */,
+				B0331F471DD4BAD500A05428 /* PDFKFont.m in Sources */,
 				B05387471DD1E66E008ADBBF /* LazyPDFConfiguration.m in Sources */,
 				90483A1A1AB6A9B900E62E60 /* LazyPDFThumbView.m in Sources */,
+				B0331F381DD4BAD500A05428 /* PDFKCIDType0Font.m in Sources */,
+				B0331F741DD4BAD500A05428 /* PDFKSelection.m in Sources */,
+				B0331F711DD4BAD500A05428 /* PDFKPageScanner.m in Sources */,
 				904839F41AB6A9B900E62E60 /* LazyPDFMainPagebar.m in Sources */,
 				90483A201AB6A9B900E62E60 /* LazyPDFViewController.m in Sources */,
 				904839FF1AB6A9B900E62E60 /* LazyPDFPopoverView.m in Sources */,
+				B0331F561DD4BAD500A05428 /* PDFKRenderingState.m in Sources */,
 				904839EE1AB6A9B900E62E60 /* LazyPDFDrawToolbar.m in Sources */,
 				90483A0E1AB6A9B900E62E60 /* LazyPDFThumbQueue.m in Sources */,
 				904839E51AB6A9B900E62E60 /* LazyPDFDocumentOutline.m in Sources */,
 				90483A171AB6A9B900E62E60 /* LazyPDFThumbsView.m in Sources */,
 				90483A461AB6A9B900E62E60 /* ThumbsViewController.m in Sources */,
 				904839E21AB6A9B900E62E60 /* LazyPDFDocument.m in Sources */,
+				B0331F501DD4BAD500A05428 /* PDFKFontFile.m in Sources */,
 				90483A051AB6A9B900E62E60 /* LazyPDFSourceColorView.m in Sources */,
 				904839C41AB6A9B900E62E60 /* LazyPDFColorIndicatorView.m in Sources */,
+				B0331F531DD4BAD500A05428 /* PDFKMMType1Font.m in Sources */,
+				B0331F4A1DD4BAD500A05428 /* PDFKFontCollection.m in Sources */,
 				90483A141AB6A9B900E62E60 /* LazyPDFThumbRequest.m in Sources */,
 				90483A081AB6A9B900E62E60 /* LazyPDFThumbCache.m in Sources */,
 				904839EB1AB6A9B900E62E60 /* LazyPDFDrawingView.m in Sources */,
+				B0331F4D1DD4BAD500A05428 /* PDFKFontDescriptor.m in Sources */,
+				B0331F351DD4BAD500A05428 /* PDFKCIDFont.m in Sources */,
 				904839F11AB6A9B900E62E60 /* LazyPDFHSBSupport.m in Sources */,
+				B0331F3E1DD4BAD500A05428 /* PDFKCMap.m in Sources */,
+				B0331F6B1DD4BAD500A05428 /* PDFKType3Font.m in Sources */,
 				904839F91AB6A9B900E62E60 /* LazyPDFModel.xcdatamodeld in Sources */,
 				9048399E1AB6A9B900E62E60 /* File.m in Sources */,
 			);
@@ -916,28 +1133,42 @@
 				904839E01AB6A9B900E62E60 /* LazyPDFDataManager.m in Sources */,
 				90483A181AB6A9B900E62E60 /* LazyPDFThumbsView.m in Sources */,
 				904839D41AB6A9B900E62E60 /* LazyPDFConstants.m in Sources */,
+				B0331F3F1DD4BAD500A05428 /* PDFKCMap.m in Sources */,
 				90483A121AB6A9B900E62E60 /* LazyPDFThumbRender.m in Sources */,
 				904839EF1AB6A9B900E62E60 /* LazyPDFDrawToolbar.m in Sources */,
 				904839C21AB6A9B900E62E60 /* LazyPDFColorBarPicker.m in Sources */,
+				B0331F4B1DD4BAD500A05428 /* PDFKFontCollection.m in Sources */,
 				904839F51AB6A9B900E62E60 /* LazyPDFMainPagebar.m in Sources */,
 				904839DA1AB6A9B900E62E60 /* LazyPDFContentTile.m in Sources */,
 				90483A4A1AB6A9B900E62E60 /* UIXToolbarView.m in Sources */,
+				B0331F631DD4BAD500A05428 /* PDFKTrueTypeFont.m in Sources */,
 				904839FD1AB6A9B900E62E60 /* LazyPDFPopoverController.m in Sources */,
 				90483A001AB6A9B900E62E60 /* LazyPDFPopoverView.m in Sources */,
 				B05387481DD1E66E008ADBBF /* LazyPDFConfiguration.m in Sources */,
 				904839D71AB6A9B900E62E60 /* LazyPDFContentPage.m in Sources */,
 				9048397E1AB6A9B900E62E60 /* Annotation.m in Sources */,
+				B0331F361DD4BAD500A05428 /* PDFKCIDFont.m in Sources */,
+				B0331F661DD4BAD500A05428 /* PDFKType0Font.m in Sources */,
+				B0331F541DD4BAD500A05428 /* PDFKMMType1Font.m in Sources */,
 				90483A061AB6A9B900E62E60 /* LazyPDFSourceColorView.m in Sources */,
 				90483A1E1AB6A9B900E62E60 /* LazyPDFTouchView.m in Sources */,
 				90483A0F1AB6A9B900E62E60 /* LazyPDFThumbQueue.m in Sources */,
 				9048399F1AB6A9B900E62E60 /* File.m in Sources */,
+				B0331F5A1DD4BAD500A05428 /* PDFKRenderingStateStack.m in Sources */,
+				B0331F6C1DD4BAD500A05428 /* PDFKType3Font.m in Sources */,
 				904839F81AB6A9B900E62E60 /* LazyPDFMainToolbar.m in Sources */,
+				B0331F601DD4BAD500A05428 /* PDFKStringDetector.m in Sources */,
 				904839E91AB6A9B900E62E60 /* LazyPDFDrawingTools.m in Sources */,
 				904839C51AB6A9B900E62E60 /* LazyPDFColorIndicatorView.m in Sources */,
 				90483A1B1AB6A9B900E62E60 /* LazyPDFThumbView.m in Sources */,
+				B0331F391DD4BAD500A05428 /* PDFKCIDType0Font.m in Sources */,
 				904839C91AB6A9B900E62E60 /* LazyPDFColorPickerController.m in Sources */,
+				B0331F4E1DD4BAD500A05428 /* PDFKFontDescriptor.m in Sources */,
+				B0331F421DD4BAD500A05428 /* PDFKCompositeFont.m in Sources */,
 				90483A091AB6A9B900E62E60 /* LazyPDFThumbCache.m in Sources */,
+				B0331F691DD4BAD500A05428 /* PDFKType1Font.m in Sources */,
 				90483A151AB6A9B900E62E60 /* LazyPDFThumbRequest.m in Sources */,
+				B0331F751DD4BAD500A05428 /* PDFKSelection.m in Sources */,
 				90483A211AB6A9B900E62E60 /* LazyPDFViewController.m in Sources */,
 				9048385D1AB6A8C600E62E60 /* LazyPDFKitTests.m in Sources */,
 				904839CC1AB6A9B900E62E60 /* LazyPDFColorPickerNavigationController.m in Sources */,
@@ -948,10 +1179,17 @@
 				90483A0C1AB6A9B900E62E60 /* LazyPDFThumbFetch.m in Sources */,
 				90483A441AB6A9B900E62E60 /* ThumbsMainToolbar.m in Sources */,
 				904839FA1AB6A9B900E62E60 /* LazyPDFModel.xcdatamodeld in Sources */,
+				B0331F5D1DD4BAD500A05428 /* PDFKSimpleFont.m in Sources */,
+				B0331F481DD4BAD500A05428 /* PDFKFont.m in Sources */,
 				904839E61AB6A9B900E62E60 /* LazyPDFDocumentOutline.m in Sources */,
 				904839DD1AB6A9B900E62E60 /* LazyPDFContentView.m in Sources */,
+				B0331F3C1DD4BAD500A05428 /* PDFKCIDType2Font.m in Sources */,
+				B0331F511DD4BAD500A05428 /* PDFKFontFile.m in Sources */,
+				B0331F571DD4BAD500A05428 /* PDFKRenderingState.m in Sources */,
 				904839821AB6A9B900E62E60 /* CGPDFDocument.m in Sources */,
+				B0331F721DD4BAD500A05428 /* PDFKPageScanner.m in Sources */,
 				904839F21AB6A9B900E62E60 /* LazyPDFHSBSupport.m in Sources */,
+				B0331F451DD4BAD500A05428 /* PDFKEncodingDifferences.m in Sources */,
 				904839E31AB6A9B900E62E60 /* LazyPDFDocument.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
