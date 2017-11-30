@@ -276,7 +276,7 @@ LazyPDFMainToolbarDelegate, LazyPDFMainPagebarDelegate, LazyPDFContentViewDelega
     {
         if ((page < minimumPage) || (page > maximumPage)) return;
         
-        [self saveAnnotation];
+        //[self saveAnnotation];
         
         currentPage = page; document.pageNumber = [NSNumber numberWithInteger:page];
         
@@ -901,7 +901,7 @@ LazyPDFMainToolbarDelegate, LazyPDFMainPagebarDelegate, LazyPDFContentViewDelega
 
 - (void)tappedInToolbar:(LazyPDFMainToolbar *)toolbar doneButton:(UIButton *)button
 {
-    [self saveAnnotation];
+    //[self saveAnnotation];
 #if (LazyPDF_STANDALONE == FALSE) // Option
     
     [self closeDocument]; // Close LazyPDFViewController
@@ -1193,7 +1193,7 @@ LazyPDFMainToolbarDelegate, LazyPDFMainPagebarDelegate, LazyPDFContentViewDelega
                         }
                     }else{
                         if ((button.tag==1 && self.drawingView.drawTool == LazyPDFDrawingToolTypePen) || (button.tag==2 && self.drawingView.drawTool == LazyPDFDrawingToolTypeText) || (button.tag==3 && self.drawingView.drawTool == LazyPDFDrawingToolTypeRectagleFill) || (button.tag==4 && self.drawingView.drawTool == LazyPDFDrawingToolTypeLine) || (button.tag==5 && self.drawingView.drawTool == LazyPDFDrawingToolTypeRectagleStroke) || (button.tag==6 && self.drawingView.drawTool == LazyPDFDrawingToolTypeEllipseStroke) || (button.tag==7 && self.drawingView.drawTool == LazyPDFDrawingToolTypeEllipseFill) || (button.tag==8 && self.drawingView.drawTool == LazyPDFDrawingToolTypeEraser)) {
-                            [self saveAnnotation];
+                            //[self saveAnnotation];
                         }
                     }
                     if (button.tag<=8)
@@ -1252,7 +1252,7 @@ LazyPDFMainToolbarDelegate, LazyPDFMainPagebarDelegate, LazyPDFContentViewDelega
                                 if ([self.drawingView drawTool] == LazyPDFDrawingToolTypeNone)
                                 {
                                     [drawToolbar clearButtonSelection:8];
-                                    [self saveAnnotation];
+                                    //[self saveAnnotation];
                                 }
                                 break;
                             case 11:
@@ -1262,7 +1262,7 @@ LazyPDFMainToolbarDelegate, LazyPDFMainPagebarDelegate, LazyPDFContentViewDelega
                                 if ([self.drawingView drawTool] == LazyPDFDrawingToolTypeNone)
                                 {
                                     [drawToolbar clearButtonSelection:8];
-                                    [self saveAnnotation];
+                                    //[self saveAnnotation];
                                 }
                                 break;
                             case 12:
@@ -1272,7 +1272,7 @@ LazyPDFMainToolbarDelegate, LazyPDFMainPagebarDelegate, LazyPDFContentViewDelega
                                 if ([self.drawingView drawTool] == LazyPDFDrawingToolTypeNone)
                                 {
                                     [drawToolbar clearButtonSelection:8];
-                                    [self saveAnnotation];
+                                    //[self saveAnnotation];
                                 }
                                 break;
                             default:
